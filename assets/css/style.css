@@ -313,24 +313,34 @@ a   { color: inherit; text-decoration: none; }
   align-items: flex-end;
   padding: 0 var(--section-px) clamp(4rem, 8vh, 8rem);
   overflow: hidden;
-  background: #1a140e; /* dark fallback while video loads */
+  background: #1a140e; /* dark fallback while image loads */
 }
 
 .hero__bg {
   position: absolute;
   inset: 0;
 }
-.hero__video {
+.hero__img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: center 40%;
+  transform: scale(1.06);
+  animation: hero-zoom 10s var(--ease-out-expo) forwards;
+}
+@keyframes hero-zoom {
+  to { transform: scale(1); }
 }
 
 .hero__overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.4);
+  background: linear-gradient(
+    to top,
+    rgba(15, 12, 8, 0.80) 0%,
+    rgba(15, 12, 8, 0.38) 45%,
+    rgba(15, 12, 8, 0.12) 100%
+  );
 }
 
 .hero__content {
