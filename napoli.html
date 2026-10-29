@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scopri Napoli dal Vomero — B&amp;B Vomero · Napoli</title>
+  <meta name="description" content="Guida esclusiva al quartiere Vomero e a Napoli: panorami mozzafiato, Castel Sant'Elmo, funicolari storiche e la migliore cucina partenopea." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/cookie-banner.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════ NAVBAR ═══════════════════════════ -->
+  <header class="navbar" id="navbar">
+    <div class="navbar__logo">
+      <a href="index.html" class="logo-text">B&amp;B<br><span>Vomero</span></a>
+    </div>
+    <nav class="navbar__nav" aria-label="Navigazione principale">
+      <a href="il-bb.html">Il B&amp;B</a>
+      <a href="camere.html">Camere</a>
+      <a href="colazione.html">Colazione</a>
+      <a href="napoli.html" class="active">Napoli</a>
+      <a href="contatti.html">Contatti</a>
+      <a href="contatti.html" class="btn-nav">Prenota</a>
+    </nav>
+    <button class="navbar__burger" aria-label="Apri menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main>
+    <!-- ═══════════════════════════ PAGE HERO ═══════════════════════════ -->
+    <section class="page-hero" aria-label="Napoli dal Vomero">
+      <div class="page-hero__bg">
+        <img
+          src="assets/images/vomero.jpg"
+          alt="Spettacolare veduta panoramica di Napoli al tramonto dalla terrazza di San Martino al Vomero"
+          fetchpriority="high"
+          decoding="async"
+          class="page-hero__img"
+        />
+        <div class="page-hero__overlay"></div>
+      </div>
+      <div class="page-hero__content">
+        <p class="eyebrow eyebrow--light reveal-text">La città ai tuoi piedi</p>
+        <h1 class="page-hero__title reveal-text delay-1">
+          Il Vomero, la collina più bella di Napoli.
+        </h1>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════ IL QUARTIERE ═══════════════════════════ -->
+    <section class="page-content">
+      <div class="editorial">
+        <div class="editorial__left reveal-on-scroll">
+          <p class="eyebrow">La Nostra Posizione</p>
+          <h2 class="editorial__title">
+            Un'isola di quiete ed eleganza, a pochi minuti da ogni meraviglia.
+          </h2>
+        </div>
+        <div class="editorial__body reveal-on-scroll delay-1">
+          <p>
+            Vivere Napoli dal Vomero significa godersi il meglio di due mondi: l'energia travolgente del centro 
+            storico durante il giorno e il rientro serale in un quartiere residenziale, sicuro, pulito e alberato, 
+            ricco di boutique raffinate, caffè letterari e ristoranti d'eccellenza.
+          </p>
+          <p>
+            Da qui, il Golfo di Napoli, il Vesuvio, Capri e Castel dell'Ovo si abbracciano con un solo sguardo. 
+            Camminare lungo Via Aniello Falcone al tramonto o affacciarsi dalla terrazza del belvedere di San Martino 
+            è un'emozione che rimane impressa per sempre.
+          </p>
+        </div>
+      </div>
+
+      <!-- Tre highlights del quartiere -->
+      <div class="camere__grid" style="margin-bottom: 5rem;">
+        <article class="camera-card reveal-on-scroll">
+          <div class="camera-card__img-wrap">
+            <img src="assets/images/vomero.jpg" alt="Castel Sant'Elmo e la vista a 360 gradi su Napoli" loading="lazy" decoding="async" />
+          </div>
+          <div class="camera-card__body">
+            <h3 class="camera-card__name">Castel Sant'Elmo &amp; San Martino</h3>
+            <p class="camera-card__desc">
+              A soli 10 minuti a piedi dal B&amp;B. La fortezza medievale scavata nel tufo offre il panorama a 360° più impressionante su tutta la Campania.
+            </p>
+          </div>
+        </article>
+
+        <article class="camera-card reveal-on-scroll delay-1">
+          <div class="camera-card__img-wrap">
+            <img src="assets/images/about.jpg" alt="Scorci liberty e vicoli fioriti del Vomero" loading="lazy" decoding="async" />
+          </div>
+          <div class="camera-card__body">
+            <h3 class="camera-card__name">Le Tre Funicolari Storiche</h3>
+            <p class="camera-card__desc">
+              Un capolavoro ingegneristico di fine Ottocento: Funicolare di Chiaia, Funicolare Centrale e di Montesanto collegano la collina a Spaccanapoli e al mare in 5 minuti.
+            </p>
+          </div>
+        </article>
+
+        <article class="camera-card reveal-on-scroll delay-2">
+          <div class="camera-card__img-wrap">
+            <img src="assets/images/colazione.jpg" alt="Tavolini all'aperto nei caffè di Piazza Vanvitelli" loading="lazy" decoding="async" />
+          </div>
+          <div class="camera-card__body">
+            <h3 class="camera-card__name">Piazza Vanvitelli &amp; Via Scarlatti</h3>
+            <p class="camera-card__desc">
+              Il cuore pedonale dello shopping napoletano d'alta classe, gelaterie artigianali e pizzerie pluripremiate dove gustare la vera pizza a portafoglio.
+            </p>
+          </div>
+        </article>
+      </div>
+
+      <!-- Itinerario consigliato dall'host -->
+      <div class="editorial" style="background: var(--cream-light); padding: 3rem; margin-bottom: 0;">
+        <div class="editorial__left reveal-on-scroll">
+          <p class="eyebrow">I Consigli dell'Host</p>
+          <h2 style="font-family: var(--ff-serif); font-size: 2.2rem; font-weight: 300; color: var(--charcoal); margin-bottom: 1rem;">
+            La discesa della Pedamentina
+          </h2>
+          <p style="font-size: 1rem; line-height: 1.85; color: var(--body-text);">
+            Uno degli itinerari pedonali più antichi d'Europa: 414 scalini in pietra tufacea che scendono da San Martino 
+            attraverso orti urbani, pergolati di limoni e vedute aperte sul mare fino al cuore di Corso Vittorio Emanuele e Spaccanapoli.
+          </p>
+        </div>
+        <div class="editorial__body reveal-on-scroll delay-1">
+          <ul class="feature-list">
+            <li><strong>Durata:</strong> circa 25 minuti a piedi in discesa rilassata</li>
+            <li><strong>Orario perfetto:</strong> al mattino presto o un'ora prima del tramonto</li>
+            <li><strong>Al ritorno:</strong> risalita comoda in funicolare fino a Piazza Vanvitelli</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════ CTA ═══════════════════════════ -->
+    <section class="prenota">
+      <div class="prenota__inner reveal-on-scroll">
+        <p class="eyebrow eyebrow--light">Organizza la tua visita</p>
+        <h2 class="prenota__title">Napoli ti aspetta</h2>
+        <p class="prenota__sub">
+          Saremo felici di preparare per te una mappa personalizzata e consigliarti i migliori orari per visitare musei e monumenti.
+        </p>
+        <div class="prenota__contacts">
+          <a href="camere.html" class="btn-secondary">Guarda le Camere</a>
+          <a href="contatti.html" class="btn-primary">Contattaci per Info</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <a href="index.html" class="logo-text logo-text--footer">B&amp;B<br><span>Vomero</span></a>
+        <p class="footer__tagline">Ospitalità autentica<br>nel cuore di Napoli</p>
+      </div>
+
+      <div class="footer__col">
+        <h4 class="footer__col-title">Navigazione</h4>
+        <ul class="footer__links">
+          <li><a href="il-bb.html">Il B&amp;B</a></li>
+          <li><a href="camere.html">Camere &amp; Suite</a></li>
+          <li><a href="colazione.html">Colazione</a></li>
+          <li><a href="napoli.html">Napoli</a></li>
+          <li><a href="contatti.html">Contatti</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4 class="footer__col-title">Contatti</h4>
+        <address class="footer__address">
+          Via Aniello Falcone, 88<br>
+          80127 Napoli (NA)<br>
+          <a href="tel:+390811847320">+39 081 1847 3320</a><br>
+          <a href="mailto:info@bbvomero.it">info@bbvomero.it</a>
+        </address>
+      </div>
+
+      <div class="footer__col">
+        <h4 class="footer__col-title">Info pratiche</h4>
+        <ul class="footer__links">
+          <li>Check-in: 14:00 – 20:00</li>
+          <li>Check-out: entro le 11:00</li>
+          <li>Colazione inclusa</li>
+          <li>Wi-Fi gratuito in fibra</li>
+          <li>No animali domestici</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <p>© 2025 B&amp;B Vomero · Napoli · P.IVA 12345678901 · <a href="privacy.html">Privacy Policy</a> · <a href="cookie-policy.html">Cookie Policy</a> · <a href="#cb-open">Gestisci Cookie</a></p>
+    </div>
+  </footer>
+
+  <!-- Floating Controls -->
+  <a href="#" id="back-to-top" class="back-to-top" aria-label="Torna all'inizio della pagina">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </a>
+
+  <button id="whatsapp-btn" class="whatsapp-btn" type="button" aria-label="Contatta via WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+      <path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.103 1.513 5.833L0 24l6.338-1.493A11.946 11.946 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.806 9.806 0 01-5.004-1.37l-.359-.213-3.764.887.902-3.67-.233-.376A9.78 9.78 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/>
+    </svg>
+    <span class="whatsapp-btn__label">WhatsApp</span>
+  </button>
+
+  <script src="assets/css/main.js"></script>
+  <script src="assets/css/cookie-banner.js"></script>
+</body>
+</html>

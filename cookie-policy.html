@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cookie Policy — B&amp;B Vomero · Napoli</title>
+  <meta name="description" content="Informativa sull'uso dei cookie del B&B Vomero ai sensi delle Linee guida Garante Privacy e del GDPR." />
+  <meta name="robots" content="noindex, follow" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/cookie-banner.css" />
+
+  <style>
+    /* ── Layout editoriale (identico a privacy.html) ── */
+    .legal-page {
+      padding-top: 120px;
+      padding-bottom: 80px;
+      min-height: 60vh;
+    }
+    .legal-page__inner {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+    .legal-page__eyebrow {
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--terracotta, #b5694e);
+      margin: 0 0 16px;
+    }
+    .legal-page__title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--charcoal, #1e1e1b);
+      margin: 0 0 12px;
+    }
+    .legal-page__meta {
+      font-family: 'Jost', sans-serif;
+      font-size: 12.5px;
+      font-weight: 300;
+      color: #888880;
+      margin: 0 0 56px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid #d9d0c0;
+    }
+    .legal-content h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--charcoal, #1e1e1b);
+      margin: 48px 0 14px;
+      line-height: 1.25;
+    }
+    .legal-content h3 {
+      font-family: 'Jost', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--terracotta, #b5694e);
+      margin: 32px 0 10px;
+    }
+    .legal-content p,
+    .legal-content li {
+      font-family: 'Jost', sans-serif;
+      font-size: 14.5px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: #3a3a36;
+      margin: 0 0 14px;
+    }
+    .legal-content ul,
+    .legal-content ol { padding-left: 20px; margin: 0 0 18px; }
+    .legal-content li { margin-bottom: 6px; }
+    .legal-content a {
+      color: var(--terracotta, #b5694e);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .legal-content strong { font-weight: 500; color: var(--charcoal, #1e1e1b); }
+    .legal-content .info-box {
+      background: #f5f0e8;
+      border-left: 3px solid #b5694e;
+      border-radius: 0 4px 4px 0;
+      padding: 16px 20px;
+      margin: 24px 0;
+    }
+    .legal-content .info-box p { margin: 0; font-size: 13.5px; }
+
+    /* Tabella cookie */
+    .cookie-table-wrap { overflow-x: auto; margin: 0 0 28px; }
+    .cookie-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: 'Jost', sans-serif;
+      font-size: 13px;
+      font-weight: 300;
+    }
+    .cookie-table thead tr {
+      border-bottom: 2px solid #d9d0c0;
+    }
+    .cookie-table th {
+      text-align: left;
+      padding: 10px 12px;
+      font-weight: 500;
+      color: #1e1e1b;
+      font-size: 12px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .cookie-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid #e8e3d8;
+      line-height: 1.55;
+      vertical-align: top;
+    }
+    .cookie-table tbody tr:last-child td { border-bottom: none; }
+    .ct-badge {
+      display: inline-block;
+      font-size: 10.5px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: 2px;
+    }
+    .ct-badge--tech {
+      color: #2e7d32;
+      background: rgba(46, 125, 50, 0.08);
+      border: 1px solid rgba(46, 125, 50, 0.25);
+    }
+    .ct-badge--analytics {
+      color: #b5694e;
+      background: rgba(181, 105, 78, 0.08);
+      border: 1px solid rgba(181, 105, 78, 0.25);
+    }
+    .ct-badge--mktg {
+      color: #6b4f8a;
+      background: rgba(107, 79, 138, 0.08);
+      border: 1px solid rgba(107, 79, 138, 0.25);
+    }
+
+    /* Blocco CTA gestione preferenze */
+    .cb-manage-cta {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background: #f5f0e8;
+      border: 1px solid #d9d0c0;
+      border-radius: 4px;
+      padding: 20px 24px;
+      margin: 40px 0;
+    }
+    .cb-manage-cta p {
+      margin: 0;
+      font-size: 13.5px;
+      flex: 1;
+    }
+    .cb-manage-cta a {
+      font-family: 'Jost', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #f5f0e8;
+      background: #b5694e;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: background 0.2s;
+    }
+    .cb-manage-cta a:hover { background: #9a5540; }
+
+    .legal-toc {
+      background: #f5f0e8;
+      border: 1px solid #d9d0c0;
+      border-radius: 4px;
+      padding: 24px 28px;
+      margin-bottom: 48px;
+    }
+    .legal-toc p {
+      font-family: 'Jost', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #888880;
+      margin: 0 0 12px;
+    }
+    .legal-toc ol { margin: 0; padding-left: 20px; }
+    .legal-toc li {
+      font-family: 'Jost', sans-serif;
+      font-size: 13.5px;
+      font-weight: 300;
+      line-height: 1.6;
+      margin-bottom: 4px;
+    }
+    .legal-toc a { color: var(--charcoal, #1e1e1b); text-decoration: none; }
+    .legal-toc a:hover { color: var(--terracotta, #b5694e); }
+    @media (max-width: 640px) {
+      .legal-page__inner { padding: 0 20px; }
+      .legal-page { padding-top: 100px; }
+      .cb-manage-cta { flex-direction: column; align-items: flex-start; }
+      .cb-manage-cta a { width: 100%; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════ NAVBAR ═══════════════════════════ -->
+  <header class="navbar navbar--dark" id="navbar">
+    <div class="navbar__logo">
+      <a href="index.html" class="logo-text">B&amp;B<br><span>Vomero</span></a>
+    </div>
+    <nav class="navbar__nav" aria-label="Navigazione principale">
+      <a href="il-bb.html">Il B&amp;B</a>
+      <a href="camere.html">Camere</a>
+      <a href="colazione.html">Colazione</a>
+      <a href="napoli.html">Napoli</a>
+      <a href="contatti.html">Contatti</a>
+      <a href="contatti.html" class="btn-nav">Prenota</a>
+    </nav>
+    <button class="navbar__burger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- ═══════════════════════════ CONTENUTO ═══════════════════════════ -->
+  <main class="legal-page" id="main-content">
+    <div class="legal-page__inner">
+
+      <p class="legal-page__eyebrow">Documenti legali</p>
+      <h1 class="legal-page__title">Cookie Policy</h1>
+      <p class="legal-page__meta">
+        Ai sensi delle Linee guida Garante Privacy — 10 giugno 2021 (agg. 2024)<br>
+        Art. 122 D.lgs. 196/2003 · Direttiva ePrivacy 2002/58/CE · GDPR (Reg. UE 2016/679)<br>
+        Ultimo aggiornamento: <strong>ottobre 2025</strong>
+      </p>
+
+      <!-- Indice -->
+      <nav class="legal-toc" aria-label="Indice">
+        <p>Indice</p>
+        <ol>
+          <li><a href="#cosa-sono">Cosa sono i cookie</a></li>
+          <li><a href="#cookie-utilizzati">Cookie utilizzati da questo sito</a></li>
+          <li><a href="#cookie-terze-parti">Cookie di terze parti</a></li>
+          <li><a href="#consenso">Consenso e gestione delle preferenze</a></li>
+          <li><a href="#disabilitare">Come disabilitare i cookie dal browser</a></li>
+          <li><a href="#dnt">Do Not Track</a></li>
+          <li><a href="#modifiche">Modifiche alla Cookie Policy</a></li>
+          <li><a href="#contatti-cp">Contatti</a></li>
+        </ol>
+      </nav>
+
+      <div class="legal-content">
+
+        <div class="info-box">
+          <p>
+            <strong>In breve:</strong> questo sito utilizza <strong>esclusivamente cookie tecnici</strong>
+            di sessione. Non installiamo cookie di profilazione o marketing senza il tuo consenso esplicito.
+            Al momento non sono attivi cookie analitici o di terze parti.
+          </p>
+        </div>
+
+        <!-- 1. Cosa sono i cookie -->
+        <h2 id="cosa-sono">1. Cosa sono i cookie</h2>
+        <p>
+          I cookie sono piccoli file di testo che i siti web visitati dagli utenti inviano ai loro
+          terminali (computer, smartphone, tablet), dove vengono memorizzati per essere ritrasmessi
+          agli stessi siti alla visita successiva. Sono usati per eseguire autenticazioni informatiche,
+          monitorare sessioni, memorizzare informazioni su specifiche configurazioni riguardanti gli
+          utenti che accedono al server, ecc.
+        </p>
+        <p>
+          Le tecnologie di tracciamento includono anche pixel/web beacon (immagini trasparenti 1×1
+          pixel che consentono di registrare l'accesso a una pagina) e script di fingerprinting.
+          Questa policy si applica a tutte le tecnologie di tracciamento, non solo ai cookie
+          tradizionali.
+        </p>
+        <p>
+          I cookie si distinguono in base alla durata:
+        </p>
+        <ul>
+          <li>
+            <strong>Cookie di sessione:</strong> eliminati automaticamente alla chiusura del browser.
+          </li>
+          <li>
+            <strong>Cookie persistenti:</strong> restano memorizzati fino alla scadenza o alla
+            cancellazione manuale.
+          </li>
+        </ul>
+        <p>
+          E in base alla provenienza:
+        </p>
+        <ul>
+          <li><strong>Cookie first-party:</strong> impostati direttamente dal sito che si visita.</li>
+          <li>
+            <strong>Cookie di terze parti:</strong> impostati da domini diversi rispetto a quello
+            del sito visitato (es. servizi di analisi, social network, piattaforme pubblicitarie).
+          </li>
+        </ul>
+
+        <!-- 2. Cookie utilizzati -->
+        <h2 id="cookie-utilizzati">2. Cookie utilizzati da questo sito</h2>
+
+        <h3>2.1 Cookie strettamente tecnici (esenzione dal consenso)</h3>
+        <p>
+          Ai sensi dell'art. 122 c. 1 del D.lgs. 196/2003 e delle Linee guida Garante Privacy
+          del 10 giugno 2021, i cookie tecnici sono esenti dall'obbligo di consenso preventivo.
+          Questi cookie sono indispensabili al funzionamento del sito e non possono essere disattivati.
+        </p>
+
+        <div class="cookie-table-wrap">
+          <table class="cookie-table">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Tipo</th>
+                <th>Durata</th>
+                <th>Scopo</th>
+                <th>Fornitore</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>bbvomero_cookie_consent</code></td>
+                <td><span class="ct-badge ct-badge--tech">Tecnico</span></td>
+                <td>6 mesi</td>
+                <td>
+                  Memorizza le preferenze cookie dell'utente (localStorage, non inviato al server).
+                  Obbligatorio per evitare la riproposizione assillante del banner (Garante 2021).
+                </td>
+                <td>First-party</td>
+              </tr>
+              <tr>
+                <td><code>bbvomero_cookie_consent_expiry</code></td>
+                <td><span class="ct-badge ct-badge--tech">Tecnico</span></td>
+                <td>6 mesi</td>
+                <td>
+                  Timestamp di scadenza delle preferenze cookie (localStorage).
+                </td>
+                <td>First-party</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>
+          <strong>Nota tecnica:</strong> le preferenze cookie di questo sito sono memorizzate nel
+          <code>localStorage</code> del browser, non in un cookie HTTP tradizionale. Ciò significa
+          che il dato non viene mai trasmesso al server. È una scelta tecnica conforme al principio
+          di minimizzazione dei dati (art. 5.1.c GDPR).
+        </p>
+
+        <h3>2.2 Cookie analitici (consenso richiesto)</h3>
+        <p>
+          <strong>Al momento non sono attivi cookie analitici.</strong> Se in futuro dovessimo
+          integrare strumenti di analisi dell'audience (es. Google Analytics 4, Plausible Analytics),
+          aggiorneremo questa policy e richiederemo il tuo consenso esplicito tramite il banner.
+        </p>
+
+        <div class="cookie-table-wrap">
+          <table class="cookie-table">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Tipo</th>
+                <th>Durata</th>
+                <th>Scopo</th>
+                <th>Fornitore</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td colspan="5" style="text-align:center; color:#888880; font-style:italic; padding:16px 12px;">
+                  Nessun cookie analitico attualmente in uso.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>2.3 Cookie di marketing e profilazione (consenso richiesto)</h3>
+        <p>
+          <strong>Al momento non sono attivi cookie di marketing o profilazione.</strong>
+          Non utilizziamo Meta Pixel, Google Ads, o strumenti analoghi. In caso di futura
+          integrazione, aggiorneremo questa policy e richieremo il consenso preventivo.
+        </p>
+
+        <div class="cookie-table-wrap">
+          <table class="cookie-table">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Tipo</th>
+                <th>Durata</th>
+                <th>Scopo</th>
+                <th>Fornitore</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td colspan="5" style="text-align:center; color:#888880; font-style:italic; padding:16px 12px;">
+                  Nessun cookie di marketing attualmente in uso.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- 3. Terze parti -->
+        <h2 id="cookie-terze-parti">3. Cookie di terze parti</h2>
+        <p>
+          Il sito include i seguenti servizi di terze parti che potrebbero impostare cookie
+          propri sulla base delle rispettive privacy policy:
+        </p>
+        <ul>
+          <li>
+            <strong>Google Fonts</strong> — caricamento dei font tipografici (Cormorant Garamond, Jost).
+            Google può raccogliere dati tecnici di connessione (IP, User Agent). Consulta la
+            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">
+              Privacy Policy di Google
+            </a>.
+          </li>
+        </ul>
+        <p>
+          I font Google Fonts sono caricati tramite richiesta HTTP ai server di Google. Stiamo
+          valutando di ospitarli localmente (self-hosting) per eliminare questa dipendenza esterna.
+        </p>
+
+        <!-- 4. Consenso -->
+        <h2 id="consenso">4. Consenso e gestione delle preferenze</h2>
+        <p>
+          Ai sensi delle Linee guida Garante Privacy del 10 giugno 2021 e del GDPR:
+        </p>
+        <ul>
+          <li>
+            <strong>Nessun cookie non tecnico viene installato prima del consenso</strong>
+            (opt-in rigoroso, art. 6.1.a GDPR e art. 122 D.lgs. 196/2003).
+          </li>
+          <li>
+            Il banner offre opzioni di <strong>pari evidenza visiva</strong> per accettare
+            ("Accetta tutto") e rifiutare ("Solo essenziali") i cookie facoltativi,
+            in conformità al requisito di simmetria del Garante.
+          </li>
+          <li>
+            La prosecuzione della navigazione (scroll) <strong>non costituisce consenso</strong>.
+          </li>
+          <li>
+            La chiusura del banner tramite "X" è equiparata al rifiuto
+            (mantenimento delle sole impostazioni default: cookie tecnici).
+          </li>
+          <li>
+            Puoi <strong>modificare o revocare il consenso in qualsiasi momento</strong>
+            tramite il link "Gestisci preferenze cookie" nel footer del sito.
+          </li>
+        </ul>
+
+        <div class="cb-manage-cta">
+          <p>Vuoi modificare le tue preferenze sui cookie? Puoi farlo in qualsiasi momento.</p>
+          <a href="#cb-open">Gestisci preferenze</a>
+        </div>
+
+        <!-- 5. Disabilitare -->
+        <h2 id="disabilitare">5. Come disabilitare i cookie dal browser</h2>
+        <p>
+          Indipendentemente dalle preferenze espresse sul banner, puoi controllare e gestire
+          i cookie direttamente dalle impostazioni del tuo browser. Segui le istruzioni ufficiali
+          per il tuo browser:
+        </p>
+        <ul>
+          <li>
+            <a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer">
+              Google Chrome
+            </a>
+          </li>
+          <li>
+            <a href="https://support.mozilla.org/it/kb/Attivare%20e%20disattivare%20i%20cookie" target="_blank" rel="noopener noreferrer">
+              Mozilla Firefox
+            </a>
+          </li>
+          <li>
+            <a href="https://support.apple.com/it-it/guide/safari/sfri11471/mac" target="_blank" rel="noopener noreferrer">
+              Apple Safari
+            </a>
+          </li>
+          <li>
+            <a href="https://support.microsoft.com/it-it/microsoft-edge/eliminare-i-cookie-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank" rel="noopener noreferrer">
+              Microsoft Edge
+            </a>
+          </li>
+        </ul>
+        <p>
+          <strong>Attenzione:</strong> disabilitare tutti i cookie potrebbe compromettere
+          il funzionamento di alcune funzionalità del sito.
+        </p>
+        <p>
+          Per gestire i cookie di analisi di Google, è disponibile il plugin ufficiale:
+          <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">
+            Google Analytics Opt-out Browser Add-on
+          </a>.
+        </p>
+
+        <!-- 6. DNT -->
+        <h2 id="dnt">6. Do Not Track</h2>
+        <p>
+          Alcuni browser permettono di inviare ai siti web il segnale "Do Not Track" (DNT),
+          che indica la preferenza dell'utente a non essere tracciato. Non esiste a oggi uno
+          standard legale vincolante sull'interpretazione di questo segnale nell'UE.
+          Tuttavia, poiché questo sito non utilizza cookie di tracciamento comportamentale,
+          la tua scelta sul DNT non modifica l'esperienza di navigazione.
+        </p>
+
+        <!-- 7. Modifiche -->
+        <h2 id="modifiche">7. Modifiche alla Cookie Policy</h2>
+        <p>
+          Questa Cookie Policy potrebbe essere aggiornata in caso di variazioni tecniche o normative.
+          Le modifiche saranno pubblicate su questa pagina con indicazione della data. In caso di
+          introduzione di nuovi cookie non tecnici, il banner verrà riproposto per raccogliere
+          un nuovo consenso informato.
+        </p>
+
+        <!-- 8. Contatti -->
+        <h2 id="contatti-cp">8. Contatti</h2>
+        <p>
+          Per qualsiasi domanda relativa all'uso dei cookie su questo sito:<br>
+          <strong>B&amp;B Vomero</strong><br>
+          Via Aniello Falcone, 88 — 80127 Napoli (NA)<br>
+          E-mail: <a href="mailto:privacy@bbvomero.it">privacy@bbvomero.it</a><br>
+          Garante Privacy: <a href="https://www.garanteprivacy.it" target="_blank" rel="noopener noreferrer">www.garanteprivacy.it</a>
+        </p>
+
+      </div><!-- /legal-content -->
+    </div><!-- /inner -->
+  </main>
+
+  <!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <a href="index.html" class="logo-text logo-text--footer">B&amp;B<br><span>Vomero</span></a>
+        <p class="footer__tagline">Ospitalità autentica<br>nel cuore di Napoli</p>
+      </div>
+
+      <div class="footer__col">
+        <h4 class="footer__col-title">Navigazione</h4>
+        <ul class="footer__links">
+          <li><a href="index.html#about">Il B&amp;B</a></li>
+          <li><a href="index.html#camere">Camere &amp; Suite</a></li>
+          <li><a href="index.html#colazione">Colazione</a></li>
+          <li><a href="index.html#napoli">Napoli</a></li>
+          <li><a href="index.html#contatti">Contatti</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4 class="footer__col-title">Contatti</h4>
+        <address class="footer__address">
+          Via Aniello Falcone, 88<br>
+          80127 Napoli (NA)<br>
+          <a href="tel:+390811847320">+39 081 1847 3320</a><br>
+          <a href="mailto:info@bbvomero.it">info@bbvomero.it</a>
+        </address>
+      </div>
+
+      <div class="footer__col">
+        <h4 class="footer__col-title">Legale</h4>
+        <ul class="footer__links">
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="cookie-policy.html">Cookie Policy</a></li>
+          <li><a href="#cb-open">Gestisci preferenze cookie</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <p>© 2025 B&amp;B Vomero · Napoli · P.IVA 12345678901 ·
+        <a href="privacy.html">Privacy Policy</a> ·
+        <a href="cookie-policy.html">Cookie Policy</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="assets/css/main.js"></script>
+  <script src="assets/css/cookie-banner.js"></script>
+</body>
+</html>
