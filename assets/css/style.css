@@ -12,9 +12,15 @@
 :root {
   --cream:         #f5f0e8;
   --cream-light:   #faf7f2;
-  --terracotta:    #b5694e;   /* contrast on white ≥ 3.8:1 → use only on bg or large text */
-  --terracotta-d:  #9a5038;   /* contrast on white ≥ 4.6:1 → safe for body links */
-  --terracotta-btn:#a8523a;   /* contrast on #fffdf9 ≥ 4.5:1 — small text buttons */
+
+  /* Rame caldo / Terracotta dorata napoletana — tono caldo vibrante e accogliente */
+  --copper-warm:       #c46238;
+  --copper-warm-hover: #ad522a;
+  --copper-warm-dark:  #94411d;
+  --terracotta:        var(--copper-warm);
+  --terracotta-d:      var(--copper-warm-dark);
+  --terracotta-btn:    var(--copper-warm);
+
   --olive:         #3d4a35;
   --olive-light:   #5a6b50;
   --charcoal:      #1e1e1b;
@@ -26,19 +32,17 @@
   --ff-serif:   'Cormorant Garamond', Georgia, serif;
   --ff-sans:    'Jost', system-ui, sans-serif;
 
-  --nav-h:      80px;
+  --nav-h:      86px;
   --section-px: clamp(1.5rem, 5vw, 6rem);
   --section-py: clamp(4rem, 8vw, 9rem);
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-spring:   cubic-bezier(0.34, 1.56, 0.64, 1);
 
-  /* Animation timing — leggere, eleganti */
-  --dur-hero:    1.4s;    /* hero stagger reveal */
-  --dur-scroll:  1.1s;    /* scroll-triggered reveal */
-  --dur-delay-1: 0.35s;
-  --dur-delay-2: 0.7s;
-  --dur-delay-3: 1.05s;
+  /* Animation timing — pan in accelerato del 10% (12.5s) */
+  --dur-hero:    1.4s;
+  --dur-scroll:  1.1s;
+  --dur-pan:     12.5s;
 }
 
 /* ─── RESET ───────────────────────────────────────────────────── */
@@ -159,27 +163,28 @@ a   { color: inherit; text-decoration: none; }
   color: #fff;
 }
 
-/* ─── LOGO ────────────────────────────────────────────────────── */
+/* ─── LOGO (+10% grandezza) ──────────────────────────────────── */
 .logo-text {
   font-family: var(--ff-serif);
   font-weight: 300;
-  font-size: 1.1rem;
+  font-size: 1.25rem;       /* +10% incrementato */
   line-height: 1.1;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.07em;
   color: var(--charcoal);
   text-transform: uppercase;
+  transition: transform 0.3s ease;
 }
 .logo-text span {
-  font-size: 0.7rem;
-  letter-spacing: 0.3em;
-  color: var(--terracotta-d);
+  font-size: 0.78rem;       /* +10% incrementato */
+  letter-spacing: 0.32em;
+  color: var(--copper-warm);
 }
 .logo-text--footer { color: var(--warm-white); }
-.logo-text--footer span { color: rgba(255,255,255,0.55); }
+.logo-text--footer span { color: rgba(255,255,255,0.6); }
 
 /* ═══════════════════════════════════════════════════════════════
    NAVBAR — Solo in testa alla pagina (nessuna fascia allo scroll)
-   Animazione elegante e sobria ad apertura pagina
+   Animazione elegante con spring elastico (ispirata al video di riferimento)
 ═══════════════════════════════════════════════════════════════ */
 .navbar {
   position: absolute;
@@ -192,58 +197,70 @@ a   { color: inherit; text-decoration: none; }
   padding: 0 var(--section-px);
   background: transparent;
 
-  /* Animazione elegante ad apertura di pagina */
-  animation: navbar-intro 1.2s var(--ease-out-expo) 0.2s both;
+  /* Animazione di apertura con spring morbido ed elegante */
+  animation: nav-spring-expand 1.15s cubic-bezier(0.34, 1.35, 0.64, 1) 0.1s both;
+  will-change: transform, opacity;
 }
 
-@keyframes navbar-intro {
-  from {
+@keyframes nav-spring-expand {
+  0% {
     opacity: 0;
-    transform: translateY(-14px);
+    transform: translateY(-20px) scale(0.97);
   }
-  to {
+  60% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(2px) scale(1.01);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
 }
 
 /* Colori della navbar sopra le hero fotografiche */
 .navbar .logo-text                  { color: #ffffff; }
-.navbar .logo-text span             { color: rgba(255,255,255,0.65); }
-.navbar .navbar__nav a:not(.btn-nav){ color: rgba(255,255,255,0.92); }
+.navbar .logo-text span             { color: rgba(255,255,255,0.7); }
+.navbar .navbar__nav a:not(.btn-nav){ color: rgba(255,255,255,0.94); }
 .navbar .navbar__nav a:not(.btn-nav)::after {
   background: #ffffff;
 }
 .navbar .btn-nav {
-  border-color: rgba(255,255,255,0.7);
+  border-color: rgba(255,255,255,0.75);
   color: #ffffff;
+  font-size: 0.8rem;
+  padding: 0.5rem 1.5rem;
 }
 .navbar .btn-nav:hover {
-  background: rgba(255,255,255,0.18);
-  border-color: #ffffff;
+  background: var(--copper-warm);
+  border-color: var(--copper-warm);
+  color: #ffffff;
 }
 .navbar__burger { color: #ffffff; }
 
-/* Navbar su pagine a sfondo chiaro (es. legal / privacy se non c'è hero scura) */
+/* Navbar su pagine a sfondo chiaro (es. legal / privacy) */
 .navbar--dark .logo-text { color: var(--charcoal); }
-.navbar--dark .logo-text span { color: var(--terracotta-d); }
+.navbar--dark .logo-text span { color: var(--copper-warm); }
 .navbar--dark .navbar__nav a:not(.btn-nav) { color: var(--body-text); }
-.navbar--dark .navbar__nav a:not(.btn-nav)::after { background: var(--terracotta-d); }
-.navbar--dark .btn-nav { border-color: var(--terracotta-d); color: var(--terracotta-d); }
+.navbar--dark .navbar__nav a:not(.btn-nav)::after { background: var(--copper-warm); }
+.navbar--dark .btn-nav { border-color: var(--copper-warm); color: var(--copper-warm); }
 .navbar--dark .navbar__burger { color: var(--charcoal); }
 
-/* Nav link underline animato */
+/* Nav link (+10% grandezza) con micro-stagger morbido */
 .navbar__nav {
   display: flex;
   align-items: center;
-  gap: 2.25rem;
+  gap: 2.35rem;
 }
 .navbar__nav a:not(.btn-nav) {
   position: relative;
-  font-size: 0.72rem;
+  font-size: 0.82rem;       /* +10% incrementato (13px) */
   font-weight: 500;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
+  color: var(--body-text);
+  opacity: 0.85;
+  transition: opacity 0.25s, transform 0.25s;
+}
   color: var(--body-text);
   opacity: 0.8;
   transition: opacity 0.25s;
