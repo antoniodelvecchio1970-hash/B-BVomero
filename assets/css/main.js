@@ -97,7 +97,8 @@
     if (discoverImg && discoverSect) {
       const rect   = discoverSect.getBoundingClientRect();
       const center = rect.top + rect.height / 2 - window.innerHeight / 2;
-      discoverImg.style.transform = `translateY(${center * 0.12}px)`;
+      const shift  = Math.max(-125, Math.min(125, center * 0.12));
+      discoverImg.style.transform = `translateY(${shift}px)`;
     }
   }
 
@@ -110,6 +111,24 @@
       rafId = null;
     });
   }, { passive: true });
+
+  /* ─── PAN HERO: riparte quando si torna a inizio pagina ───── */
+  const pageHero    = document.querySelector('.page-hero');
+  const pageHeroImg = document.querySelector('.page-hero__img');
+  if (pageHero && pageHeroImg) {
+    let awayFromTop = false;
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      if (y > pageHero.offsetHeight * 0.25) {
+        awayFromTop = true;
+      } else if (y <= 2 && awayFromTop) {
+        awayFromTop = false;
+        pageHeroImg.style.animation = 'none';
+        void pageHeroImg.offsetWidth;          /* forza il reflow */
+        pageHeroImg.style.animation = '';
+      }
+    }, { passive: true });
+  }
 
   /* ─── BACK TO TOP ───────────────────────────────────────────── */
   const backToTop = document.getElementById('back-to-top');
