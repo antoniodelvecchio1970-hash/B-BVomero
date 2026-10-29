@@ -39,10 +39,10 @@
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-spring:   cubic-bezier(0.34, 1.56, 0.64, 1);
 
-  /* Animation timing — pan in accelerato del 10% (12.5s) */
+  /* Animation timing — pan in accelerato (10s) per renderlo vivo ed elegante */
   --dur-hero:    1.4s;
   --dur-scroll:  1.1s;
-  --dur-pan:     12.5s;
+  --dur-pan:     10s;
 }
 
 /* ─── RESET ───────────────────────────────────────────────────── */
@@ -408,15 +408,15 @@ a   { color: inherit; text-decoration: none; }
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   PAGE HERO (sezioni interne)
+   PAGE HERO (sezioni interne) — Dimensione verticale aumentata
 ═══════════════════════════════════════════════════════════════ */
 .page-hero {
   position: relative;
-  height: 55vh;
-  min-height: 400px;
+  height: 70vh;              /* dimensione verticale incrementata */
+  min-height: 520px;
   display: flex;
   align-items: flex-end;
-  padding: 0 var(--section-px) clamp(3rem, 6vh, 5rem);
+  padding: 0 var(--section-px) clamp(3.5rem, 7vh, 6rem);
   overflow: hidden;
   background: #1a140e;
 }
@@ -428,17 +428,48 @@ a   { color: inherit; text-decoration: none; }
   width: 100%; height: 100%;
   object-fit: cover;
   object-position: center;
-  transform: scale(1.07);
-  animation: page-hero-pan 14s cubic-bezier(0.2, 0.9, 0.3, 1) forwards;
+  transform: scale(1.08);
+  animation: page-hero-pan var(--dur-pan, 10s) cubic-bezier(0.2, 0.9, 0.3, 1) forwards;
   will-change: transform;
+}
+
+/* Classe dinamica per riavvio del pan su scroll-up e back-to-top */
+.page-hero__img.is-restarting,
+.hero__img.is-restarting,
+.camera-img-pan.is-restarting {
+  animation: none !important;
 }
 
 @keyframes page-hero-pan {
   0% {
-    transform: scale(1.08) translateY(6px);
+    transform: scale(1.09) translateY(8px);
   }
   100% {
     transform: scale(1.0) translateY(0);
+  }
+}
+
+/* Pan in per le foto delle camere: si attiva all'ingresso nella viewport */
+.camera-img-pan {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.08);
+  will-change: transform;
+}
+
+.reveal-on-scroll.is-visible .camera-img-pan,
+.camera-img-pan.is-visible,
+.camera-img-pan:not(.reveal-on-scroll *) {
+  animation: camera-pan var(--dur-pan, 10s) cubic-bezier(0.2, 0.9, 0.3, 1) forwards;
+}
+
+@keyframes camera-pan {
+  0% {
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(1.0);
   }
 }
 .page-hero__overlay {
@@ -513,7 +544,7 @@ a   { color: inherit; text-decoration: none; }
 .about__gallery-item:hover img { transform: scale(1.04); }
 
 /* ═══════════════════════════════════════════════════════════════
-   DISCOVER — Due foto sovrapposte in armonia editoriale
+   DISCOVER — Solo foto panoramica nello spazio nero
 ═══════════════════════════════════════════════════════════════ */
 .discover {
   background: #18140f;
@@ -534,45 +565,24 @@ a   { color: inherit; text-decoration: none; }
 
 .discover__visual {
   position: relative;
-  padding-bottom: 3.5rem;
-  padding-right: 2rem;
+  width: 100%;
 }
 
-.discover__photo--main {
-  width: 90%;
+.discover__photo {
+  width: 100%;
   aspect-ratio: 16/10;
   overflow: hidden;
-  box-shadow: 0 20px 45px rgba(0,0,0,0.45);
+  box-shadow: 0 24px 50px rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.06);
 }
-.discover__photo--main img {
+.discover__photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.8s var(--ease-out-expo);
 }
-.discover__photo--main:hover img {
+.discover__photo:hover img {
   transform: scale(1.03);
-}
-
-.discover__photo--overlap {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  width: 52%;
-  aspect-ratio: 4/3;
-  overflow: hidden;
-  border: 5px solid #18140f;
-  box-shadow: 0 16px 36px rgba(0,0,0,0.55);
-  z-index: 2;
-}
-.discover__photo--overlap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.8s var(--ease-out-expo);
-}
-.discover__photo--overlap:hover img {
-  transform: scale(1.04);
 }
 
 .discover__content {
@@ -599,10 +609,6 @@ a   { color: inherit; text-decoration: none; }
   .discover__container {
     grid-template-columns: 1fr;
     gap: 3.5rem;
-  }
-  .discover__visual {
-    padding-bottom: 2.5rem;
-    padding-right: 1.5rem;
   }
 }
 

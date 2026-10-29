@@ -112,34 +112,39 @@
     });
   }, { passive: true });
 
-  /* ─── PAN HERO: riparte quando si torna a inizio pagina ───── */
-  const pageHero    = document.querySelector('.page-hero');
-  const pageHeroImg = document.querySelector('.page-hero__img');
-  if (pageHero && pageHeroImg) {
-    let awayFromTop = false;
-    window.addEventListener('scroll', () => {
-      const y = window.scrollY;
-      if (y > pageHero.offsetHeight * 0.25) {
-        awayFromTop = true;
-      } else if (y <= 2 && awayFromTop) {
-        awayFromTop = false;
-        pageHeroImg.style.animation = 'none';
-        void pageHeroImg.offsetWidth;          /* forza il reflow */
-        pageHeroImg.style.animation = '';
-      }
-    }, { passive: true });
+  /* ─── RIAVVIO PAN IN SU HERO E FOTO (scroll up & back to top) ─ */
+  function restartPanAnimations() {
+    const imgs = document.querySelectorAll('.hero__img, .page-hero__img, .camera-img-pan');
+    imgs.forEach(img => {
+      img.style.animation = 'none';
+      void img.offsetWidth;          /* forza il reflow del browser */
+      img.style.animation = '';
+    });
   }
+
+  let awayFromTop = false;
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    if (y > 200) {
+      awayFromTop = true;
+    } else if (y <= 15 && awayFromTop) {
+      awayFromTop = false;
+      restartPanAnimations();
+    }
+  }, { passive: true });
 
   /* ─── BACK TO TOP ───────────────────────────────────────────── */
   const backToTop = document.getElementById('back-to-top');
   if (backToTop) {
     window.addEventListener('scroll', () => {
-      backToTop.classList.toggle('is-visible', window.scrollY > 500);
+      backToTop.classList.toggle('is-visible', window.scrollY > 400);
     }, { passive: true });
 
     backToTop.addEventListener('click', e => {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: 'smooth' });
+      /* Riattiva il pan in immediatamente */
+      setTimeout(restartPanAnimations, 150);
     });
   }
 
