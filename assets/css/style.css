@@ -249,6 +249,24 @@ a   { color: inherit; text-decoration: none; }
    NAVBAR — Solo in testa alla pagina (nessuna fascia allo scroll)
    Animazione elegante con spring elastico (ispirata al video di riferimento)
 ═══════════════════════════════════════════════════════════════ */
+
+/* Desktop Navbar Fade In */
+@media (min-width: 769px) {
+  .navbar {
+    animation: navbarFadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+}
+@keyframes navbarFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .navbar {
   position: absolute;
   top: 0; left: 0; right: 0;
@@ -1362,6 +1380,13 @@ a   { color: inherit; text-decoration: none; }
   opacity: 1; transition: opacity 1.8s ease;
 }
 .napoli-intro video { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+@media (max-width: 768px) {
+  .napoli-intro video {
+    object-position: 85% center;
+  }
+}
+
 .napoli-intro.is-leaving { opacity: 0; pointer-events: none; }
 body.has-intro:not(.intro-done) .reveal-text { animation-play-state: paused; }
 .br-desktop { display: inline; }
@@ -1388,7 +1413,7 @@ body.has-intro:not(.intro-done) .reveal-text { animation-play-state: paused; }
   body::after {
     content: ''; position: fixed; inset: 0; z-index: 90;
     background: linear-gradient(rgba(20,18,14,0.18), rgba(20,18,14,0.38)),
-                url('../images/menu-golfo.jpg') 30% 100% / auto 150% no-repeat;
+                url('../images/menu-golfo.jpg') 36% 82% / auto 185% no-repeat;
     opacity: 0; pointer-events: none; transition: opacity 0.7s ease;
   }
   body.menu-open::after { opacity: 1; pointer-events: auto; }
@@ -1396,18 +1421,18 @@ body.has-intro:not(.intro-done) .reveal-text { animation-play-state: paused; }
 
   .navbar__burger {
     display: inline-flex; position: fixed; top: 1rem; right: 1.25rem; z-index: 300;
-    width: 46px; height: 46px; padding: 0; gap: 6px;
+    width: 41px; height: 41px; padding: 0; gap: 5.5px;
     background: var(--olive); color: #fff !important;
   }
-  .navbar__burger span { width: 22px; height: 1.5px; transform-origin: center; }
-  .navbar__burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
-  .navbar__burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+  .navbar__burger span { width: 20px; height: 1.5px; transform-origin: center; }
+  .navbar__burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .navbar__burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
   .navbar__nav, .navbar__nav.is-open {
     counter-reset: mn;
     display: flex; flex-direction: column; align-items: stretch; justify-content: flex-start; gap: 0;
-    position: fixed; inset: auto 12px 12px 12px; z-index: 250;
-    padding: 14px 26px 28px; border-radius: 26px;
+    position: fixed; inset: auto 16px 12px 16px; z-index: 250;
+    padding: 10px 22px 18px; border-radius: 22px;
     background: rgba(255,253,249,0.62);
     -webkit-backdrop-filter: blur(30px) saturate(1.05); backdrop-filter: blur(30px) saturate(1.05);
     border: 1px solid rgba(255,255,255,0.55);
@@ -1420,23 +1445,23 @@ body.has-intro:not(.intro-done) .reveal-text { animation-play-state: paused; }
     transition: transform 0.8s var(--ease-out-expo), visibility 0s;
   }
   .navbar__nav::before {
-    content: ''; display: block; width: 36px; height: 3px; border-radius: 2px;
-    background: rgba(61,74,53,0.35); margin: 0 auto 10px;
+    content: ''; display: block; width: 32px; height: 3px; border-radius: 2px;
+    background: rgba(61,74,53,0.35); margin: 0 auto 6px;
   }
   .navbar .navbar__nav a:not(.btn-nav),
   .navbar--dark .navbar__nav a:not(.btn-nav),
   .navbar__nav.is-open a:not(.btn-nav) {
     display: flex; justify-content: space-between; align-items: center;
-    padding: 14px 0; border-bottom: 1px solid rgba(61,74,53,0.18);
-    color: #2a3324; font-family: var(--ff-serif); font-size: 1.75rem; font-weight: 400; line-height: 1;
+    padding: 9.5px 0; border-bottom: 1px solid rgba(61,74,53,0.16);
+    color: #2a3324; font-family: var(--ff-serif); font-size: 1.48rem; font-weight: 400; line-height: 1;
     letter-spacing: 0; text-transform: none;
-    opacity: 0; transform: translateY(22px);
+    opacity: 0; transform: translateY(18px);
     transition: opacity 0.6s var(--ease-out-expo), transform 0.7s var(--ease-out-expo);
   }
   .navbar .navbar__nav a:not(.btn-nav)::after { display: none; }
   .navbar__nav a:not(.btn-nav)::before {
     counter-increment: mn; content: '0' counter(mn); order: 2;
-    font-family: var(--ff-sans); font-size: 0.65rem; letter-spacing: 0.2em; color: #b0703f;
+    font-family: var(--ff-sans); font-size: 0.6rem; letter-spacing: 0.2em; color: #b0703f;
   }
   .navbar__nav.is-open a { opacity: 1 !important; transform: none !important; }
   .navbar__nav.is-open a:nth-child(1) { transition-delay: 0.18s; }
@@ -1446,10 +1471,10 @@ body.has-intro:not(.intro-done) .reveal-text { animation-play-state: paused; }
   .navbar__nav.is-open a:nth-child(5) { transition-delay: 0.46s; }
   .navbar__nav.is-open .btn-nav { transition-delay: 0.55s; }
   .navbar__nav .btn-nav, .navbar .btn-nav {
-    display: block; margin-top: 22px; padding: 17px 34px; text-align: center;
+    display: block; margin-top: 14px; padding: 13px 26px; text-align: center;
     background: #b0703f; color: #fffdf9; border: 0; border-radius: 100px;
-    font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase;
-    opacity: 0; transform: translateY(22px);
+    font-size: 0.65rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase;
+    opacity: 0; transform: translateY(18px);
     transition: opacity 0.6s var(--ease-out-expo), transform 0.7s var(--ease-out-expo);
   }
   .navbar__nav .btn-nav::before { display: none; }

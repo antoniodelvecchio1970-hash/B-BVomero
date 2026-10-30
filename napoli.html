@@ -29,7 +29,7 @@
         o.classList.add('is-leaving');
         setTimeout(function(){o.remove();},2000);
       }
-      v.addEventListener('timeupdate',function(){ if(v.duration&&v.currentTime>=v.duration-1.8)end(); });
+      v.addEventListener('timeupdate',function(){ if(v.duration&&v.currentTime>=v.duration-1.4)end(); });
       v.addEventListener('ended',end);v.addEventListener('error',end);
       o.addEventListener('click',end);
       var p=v.play();if(p&&p.catch)p.catch(end);
