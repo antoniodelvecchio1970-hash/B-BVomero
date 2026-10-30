@@ -95,14 +95,27 @@
     });
   }, { passive: true });
 
-  /* ─── RIAVVIO PAN IN SU HERO E FOTO (scroll up & back to top) ─ */
-  function restartPanAnimations() {
-    const imgs = document.querySelectorAll('.hero__img, .page-hero__img, .camera-img-pan');
+  /* ─── RIAVVIO PAN IN & VIDEO HERO (scroll up & back to top) ─ */
+  function restartHeroAndPanAnimations() {
+    // Riavvia pan sulle immagini
+    const imgs = document.querySelectorAll('.page-hero__img, .camera-img-pan');
     imgs.forEach(img => {
       img.style.animation = 'none';
       void img.offsetWidth;          /* forza il reflow del browser */
       img.style.animation = '';
     });
+
+    // Riavvia video hero dalla testa (non va in loop, si ferma sull'ultimo frame)
+    const heroVideo = document.querySelector('.hero video');
+    if (heroVideo) {
+      try {
+        heroVideo.currentTime = 0;
+        const playPromise = heroVideo.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(() => {});
+        }
+      } catch (err) {}
+    }
   }
 
   let awayFromTop = false;
@@ -112,7 +125,7 @@
       awayFromTop = true;
     } else if (y <= 15 && awayFromTop) {
       awayFromTop = false;
-      restartPanAnimations();
+      restartHeroAndPanAnimations();
     }
   }, { passive: true });
 
@@ -126,18 +139,28 @@
     backToTop.addEventListener('click', e => {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: 'smooth' });
-      /* Riattiva il pan in immediatamente */
-      setTimeout(restartPanAnimations, 150);
+      /* Riattiva video e pan in immediatamente */
+      setTimeout(restartHeroAndPanAnimations, 150);
     });
   }
 
-  /* ─── WHATSAPP BUTTON (fade in morbido ed elegante) ────────── */
+  /* ─── WHATSAPP BUTTON (comparsa lenta, MAI sulla hero) ──────── */
   const waBtn = document.getElementById('whatsapp-btn');
   if (waBtn) {
-    // Appare con un fade in morbido poco dopo il caricamento della pagina
-    setTimeout(() => {
-      waBtn.classList.add('is-visible');
-    }, 1200);
+    const hero = document.querySelector('.hero') || document.querySelector('.page-hero');
+
+    function checkWaVisibility() {
+      // Sulla home page / pagine con hero: compare solo oltre l'altezza della hero
+      const threshold = hero ? (hero.offsetHeight - 40) : 300;
+      if (window.scrollY > threshold) {
+        waBtn.classList.add('is-visible');
+      } else {
+        waBtn.classList.remove('is-visible');
+      }
+    }
+
+    window.addEventListener('scroll', checkWaVisibility, { passive: true });
+    checkWaVisibility();
 
     waBtn.addEventListener('click', e => {
       e.preventDefault();

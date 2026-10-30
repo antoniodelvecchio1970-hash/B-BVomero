@@ -116,7 +116,7 @@ Scrivi, chiama, vieni. Ti aspettiamo.
 ## 7. FOOTER
 
 **Indirizzo**
-Via Aniello Falcone, 88 — 80127 Napoli (NA)
+Via Belvedere, 88 — 80127 Napoli (NA)
 
 **Email**
 info@bbvomero.it
