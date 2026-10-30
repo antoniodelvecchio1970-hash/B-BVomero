@@ -1489,3 +1489,16 @@ body.has-intro:not(.intro-done) .reveal-text { animation-play-state: paused; }
     margin-bottom: 1rem;
   }
 }
+
+
+@media (max-width: 768px) {
+  .hero,
+  .page-hero {
+    height: 100svh !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    min-height: -webkit-fill-available !important;
+    min-height: 100svh !important;
+    padding-bottom: clamp(2.5rem, 8vh, 4.5rem) !important;
+  }
+}
