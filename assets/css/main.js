@@ -36,8 +36,7 @@
       const isOpen = nav.classList.toggle('is-open');
       burger.setAttribute('aria-expanded', String(isOpen));
       document.body.style.overflow = isOpen ? 'hidden' : '';
-      /* Colore burger in base allo stato */
-      burger.style.color = isOpen ? 'var(--charcoal)' : '';
+      document.body.classList.toggle('menu-open', isOpen);
     });
 
     nav.querySelectorAll('a').forEach(a => {
@@ -45,7 +44,7 @@
         nav.classList.remove('is-open');
         burger.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = '';
-        burger.style.color = '';
+        document.body.classList.remove('menu-open');
       });
     });
 
@@ -55,8 +54,14 @@
         nav.classList.remove('is-open');
         burger.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = '';
+        document.body.classList.remove('menu-open');
         burger.focus();
       }
+    });
+
+    /* Tap sullo sfondo fotografico chiude il menu */
+    document.body.addEventListener('click', e => {
+      if (e.target === document.body && nav.classList.contains('is-open')) burger.click();
     });
   }
 

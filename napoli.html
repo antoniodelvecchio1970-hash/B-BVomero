@@ -14,7 +14,27 @@
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="assets/css/cookie-banner.css" />
 </head>
-<body>
+<body class="has-intro">
+  <div class="napoli-intro" id="napoli-intro" aria-hidden="true">
+    <video muted playsinline autoplay preload="auto" src="assets/video/napoli-intro.mp4"></video>
+  </div>
+  <script>
+    (function(){
+      var o=document.getElementById('napoli-intro'),v=o.querySelector('video'),done=false;
+      document.body.style.overflow='hidden';
+      function end(){
+        if(done)return;done=true;
+        document.body.classList.add('intro-done');
+        document.body.style.overflow='';
+        o.classList.add('is-leaving');
+        setTimeout(function(){o.remove();},2000);
+      }
+      v.addEventListener('timeupdate',function(){ if(v.duration&&v.currentTime>=v.duration-1.8)end(); });
+      v.addEventListener('ended',end);v.addEventListener('error',end);
+      o.addEventListener('click',end);
+      var p=v.play();if(p&&p.catch)p.catch(end);
+    })();
+  </script>
 
   <!-- ═══════════════════════════ NAVBAR ═══════════════════════════ -->
   <header class="navbar" id="navbar">
@@ -131,9 +151,9 @@
         </div>
         <div class="editorial__body reveal-on-scroll delay-1">
           <ul class="feature-list">
-            <li><strong>Durata:</strong> circa 25 minuti a piedi in discesa rilassata</li>
-            <li><strong>Orario perfetto:</strong> al mattino presto o un'ora prima del tramonto</li>
-            <li><strong>Al ritorno:</strong> risalita comoda in funicolare fino a Piazza Vanvitelli</li>
+            <li><strong>Durata</strong> circa 25 minuti a piedi in discesa rilassata</li>
+            <li><strong>Orario perfetto</strong> al mattino presto o un'ora prima del tramonto</li>
+            <li><strong>Al ritorno</strong> risalita comoda in funicolare fino a Piazza Vanvitelli</li>
           </ul>
         </div>
       </div>
