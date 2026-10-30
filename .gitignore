@@ -1,2 +1,6 @@
 .DS_Store
 *.log
+*.mov
+_versioni_preview/
+Video/
+assets/video/raw/

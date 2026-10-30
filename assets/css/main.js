@@ -80,26 +80,9 @@
     revealEls.forEach(el => el.classList.add('is-visible'));
   }
 
-  /* ─── PARALLAX LEGGERO ─────────────────────────────────────── */
-  const heroImg      = document.querySelector('.hero__img');
-  const discoverImg  = document.querySelector('.discover__img');
-  const discoverSect = document.querySelector('.discover');
-
+  /* ─── SCROLL EVENT LISTENER ─────────────────────────────────── */
   function onScroll () {
-    const sy = window.scrollY;
-
-    /* Hero parallax */
-    if (heroImg) {
-      heroImg.style.transform = `scale(1) translateY(${sy * 0.22}px)`;
-    }
-
-    /* Discover parallax */
-    if (discoverImg && discoverSect) {
-      const rect   = discoverSect.getBoundingClientRect();
-      const center = rect.top + rect.height / 2 - window.innerHeight / 2;
-      const shift  = Math.max(-125, Math.min(125, center * 0.12));
-      discoverImg.style.transform = `translateY(${shift}px)`;
-    }
+    // Riservato per calcoli scroll ottimizzati
   }
 
   /* Usa requestAnimationFrame per evitare jank */
@@ -148,34 +131,18 @@
     });
   }
 
-  /* ─── WHATSAPP BUTTON ───────────────────────────────────────── */
+  /* ─── WHATSAPP BUTTON (fade in morbido ed elegante) ────────── */
   const waBtn = document.getElementById('whatsapp-btn');
   if (waBtn) {
-    const isHomePage = window.location.pathname.split('/').pop() === 'index.html' || 
-                       window.location.pathname.split('/').pop() === '';
-
-    function checkWaVisibility() {
-      const hero = document.querySelector('.hero, .page-hero');
-      const threshold = isHomePage 
-        ? ((hero ? hero.offsetHeight : 600) - 100) 
-        : 200;
-      
-      if (window.scrollY > threshold) {
-        waBtn.classList.add('is-visible');
-      } else {
-        waBtn.classList.remove('is-visible');
-      }
-    }
-
-    window.addEventListener('scroll', checkWaVisibility, { passive: true });
-    checkWaVisibility();
+    // Appare con un fade in morbido poco dopo il caricamento della pagina
+    setTimeout(() => {
+      waBtn.classList.add('is-visible');
+    }, 1200);
 
     waBtn.addEventListener('click', e => {
       e.preventDefault();
       /* SIMULAZIONE CHIAMATA — sostituire con numero reale in produzione */
       const numero = '+390811847320';
-      /* In produzione: window.location.href = `https://wa.me/${numero.replace(/\D/g,'')}` */
-      /* Per ora: simula apertura con alert elegante */
       showWhatsAppModal(numero);
     });
   }

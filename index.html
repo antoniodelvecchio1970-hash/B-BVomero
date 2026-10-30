@@ -37,7 +37,8 @@
   <section class="hero" aria-label="Benvenuto al B&B Vomero">
     <div class="hero__bg">
       <video class="hero__img" autoplay muted loop playsinline poster="assets/images/hero.jpg">
-        <source src="assets/videos/hero.mp4" type="video/mp4">
+        <source src="assets/video/hero-mobile.mp4" type="video/mp4" media="(max-width: 768px)">
+        <source src="assets/video/hero-desktop.mp4" type="video/mp4">
         Il tuo browser non supporta i video HTML5.
       </video>
       <div class="hero__overlay"></div>
@@ -92,30 +93,96 @@
     </div>
   </section>
 
-  <!-- ═══════════════════════════ DISCOVER ═══════════════════════════ -->
-  <section class="discover" id="napoli" aria-label="Scopri Napoli">
-    <div class="discover__container">
-      <div class="discover__visual reveal-on-scroll">
-        <div class="discover__photo">
-          <img
-            src="assets/images/vomero.jpg"
-            alt="Panorama di Napoli al tramonto dal Vomero con Vesuvio e Golfo di Napoli"
-            loading="lazy"
-            decoding="async"
-          />
+  <!-- ═══════════════════════════ DISCOVER (PARALLASSE A SCHEDE STACKED) ═══════════════════════════ -->
+  <section class="discover-stack" id="napoli" aria-label="Scopri Napoli">
+
+    <!-- Scheda 1: Vomero -->
+    <article class="discover-panel" id="discover-panel-1">
+      <div class="discover-panel__bg">
+        <img
+          src="assets/images/vomero.jpg"
+          alt="Panorama di Napoli al tramonto dal Vomero con Vesuvio e Golfo di Napoli"
+          loading="lazy"
+          decoding="async"
+        />
+        <div class="discover-panel__overlay"></div>
+      </div>
+      <div class="discover-panel__content-wrap">
+        <div class="discover-panel__content">
+          <p class="eyebrow eyebrow--light">La città è fuori, ad aspettarti</p>
+          <h2 class="discover-panel__title">
+            Pronto a scoprire Napoli?
+          </h2>
+          <p class="discover-panel__sub">
+            Dal Vomero tutto è a portata di funicolare: il centro storico, Spaccanapoli, Castel dell'Ovo e il lungomare Caracciolo. Napoli vi aspetta, noi vi accogliamo al ritorno.
+          </p>
+          <a href="napoli.html" class="btn-secondary">Scopri Napoli con noi</a>
         </div>
       </div>
-      <div class="discover__content reveal-on-scroll delay-1">
-        <p class="eyebrow eyebrow--light">La città è fuori, ad aspettarti</p>
-        <h2 class="discover__title">
-          Pronto a scoprire Napoli?
-        </h2>
-        <p class="discover__sub">
-          Dal Vomero tutto è a portata di funicolare: il centro storico, Spaccanapoli, Castel dell'Ovo e il lungomare Caracciolo. Napoli vi aspetta, noi vi accogliamo al ritorno.
-        </p>
-        <a href="napoli.html" class="btn-secondary">Scopri Napoli con noi</a>
+      <div class="discover-panel__footer">
+        <div class="discover-panel__progress"><span style="width: 33.3%;"></span></div>
+        <span class="discover-panel__counter">01 / 03</span>
       </div>
-    </div>
+    </article>
+
+    <!-- Scheda 2: Spaccanapoli -->
+    <article class="discover-panel" id="discover-panel-2">
+      <div class="discover-panel__bg">
+        <img
+          src="assets/images/napoli-spaccanapoli.jpg"
+          alt="Veduta aerea editoriale di Spaccanapoli e del centro storico"
+          loading="lazy"
+          decoding="async"
+        />
+        <div class="discover-panel__overlay"></div>
+      </div>
+      <div class="discover-panel__content-wrap">
+        <div class="discover-panel__content">
+          <p class="eyebrow eyebrow--light">I Decumani &amp; L'Anima Antica</p>
+          <h2 class="discover-panel__title">
+            Spaccanapoli e i vicoli storici
+          </h2>
+          <p class="discover-panel__sub">
+            A soli cinque minuti di funicolare vi immergete nel cuore pulsante dei vicoli, tra botteghe artigiane, chiostri maiolicati e l'energia autentica della Napoli più verace.
+          </p>
+          <a href="napoli.html" class="btn-secondary">Esplora il centro storico</a>
+        </div>
+      </div>
+      <div class="discover-panel__footer">
+        <div class="discover-panel__progress"><span style="width: 66.6%;"></span></div>
+        <span class="discover-panel__counter">02 / 03</span>
+      </div>
+    </article>
+
+    <!-- Scheda 3: Lungomare e Castel dell'Ovo -->
+    <article class="discover-panel" id="discover-panel-3">
+      <div class="discover-panel__bg">
+        <img
+          src="assets/images/napoli-lungomare.jpg"
+          alt="Castel dell'Ovo e il lungomare Caracciolo al tramonto"
+          loading="lazy"
+          decoding="async"
+        />
+        <div class="discover-panel__overlay"></div>
+      </div>
+      <div class="discover-panel__content-wrap">
+        <div class="discover-panel__content">
+          <p class="eyebrow eyebrow--light">Il Golfo &amp; Castel dell'Ovo</p>
+          <h2 class="discover-panel__title">
+            La brezza del mare e l'orizzonte
+          </h2>
+          <p class="discover-panel__sub">
+            Dal borgo Marinari a Via Caracciolo: passeggiate a fior d'acqua al tramonto con vista sul Vesuvio e su Capri, prima di risalire nella quiete verde del B&amp;B.
+          </p>
+          <a href="napoli.html" class="btn-secondary">Scopri Napoli con noi</a>
+        </div>
+      </div>
+      <div class="discover-panel__footer">
+        <div class="discover-panel__progress"><span style="width: 100%;"></span></div>
+        <span class="discover-panel__counter">03 / 03</span>
+      </div>
+    </article>
+
   </section>
 
   <!-- ═══════════════════════════ CAMERE ═══════════════════════════ -->
