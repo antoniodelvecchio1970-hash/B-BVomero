@@ -37,35 +37,42 @@ TIMELINE = [
         "filename": "15673263-uhd_3840_2160_60fps.mp4",
         "label": "Golfo / Vesuvio (panoramica aperta)",
         "ss": 2.5,
-        "dur": 1.2,
+        "dur": 1.666667,
         "is_image": False
     },
     {
         "filename": "16750845_1080_1920_25fps.mp4",
         "label": "Vicolo profondo verticale Spaccanapoli (densità urbana)",
         "ss": 1.5,
-        "dur": 0.8,
+        "dur": 1.666667,
         "is_image": False
     },
     {
         "filename": "15604809-uhd_2160_3840_25fps.mp4",
         "label": "Basilico sulla pizza (micro-dettaglio materico)",
         "ss": 2.0,
-        "dur": 0.8,
+        "dur": 1.666667,
+        "is_image": False
+    },
+    {
+        "filename": "113807-699653819.mp4",
+        "label": "Piazza del Plebiscito (solennità neoclassica)",
+        "ss": 4.0,
+        "dur": 1.666667,
         "is_image": False
     },
     {
         "filename": "134977-760679914.mp4",
         "label": "Murale Maradona (identità/cultura)",
         "ss": 2.0,
-        "dur": 0.8,
+        "dur": 1.666667,
         "is_image": False
     },
     {
         "filename": "hero.jpg",
         "label": "Camera da letto del B&B (inquadratura pulita e stabile)",
         "ss": 0.0,
-        "dur": 2.4,
+        "dur": 1.666667,
         "is_image": True
     }
 ]
@@ -118,7 +125,7 @@ def build_filter(meta: dict, target_mode: str) -> str:
 
 def main():
     print("=" * 75)
-    print("🎬 BibiB&B Hero Video Engine — Versione 2 (6.0s Hard Cut)")
+    print("🎬 BibiB&B Hero Video Engine — Versione 3 (10.0s Hard Cut)")
     print("=" * 75)
 
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -126,7 +133,7 @@ def main():
     TMP_M.mkdir(parents=True, exist_ok=True)
 
     total_duration = sum(item["dur"] for item in TIMELINE)
-    print(f"[*] Timeline impostata su 5 scene | Durata totale: {total_duration:.2f}s")
+    print(f"[*] Timeline impostata su {len(TIMELINE)} scene | Durata totale: {total_duration:.2f}s")
 
     d_segments = []
     m_segments = []
@@ -150,7 +157,7 @@ def main():
         filter_d = build_filter(meta, "desktop")
         filter_m = build_filter(meta, "mobile")
 
-        print(f"  [{idx+1}/5] {item['label']} ({item['dur']}s)")
+        print(f"  [{idx+1}/{len(TIMELINE)}] {item['label']} ({item['dur']}s)")
 
         if item["is_image"]:
             cmd_d = [
@@ -236,7 +243,7 @@ def main():
     m_mb = m_size / (1024 * 1024)
 
     print("=" * 75)
-    print("✅ MASTERING VERSIONE 2 COMPLETATO")
+    print("✅ MASTERING VERSIONE 5 COMPLETATO")
     print(f"Desktop: {HERO_DESKTOP} | {d_mb:.2f} MB (Target < 2.5 MB: {'PASS' if d_mb < 2.5 else 'OVER'})")
     print(f"Mobile:  {HERO_MOBILE} | {m_mb:.2f} MB (Target < 1.5 MB: {'PASS' if m_mb < 1.5 else 'OVER'})")
     print("=" * 75)
