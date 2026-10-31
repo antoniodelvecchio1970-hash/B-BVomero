@@ -27,6 +27,8 @@
   --ico-volume: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27%23000%27%20stroke-width%3D%271.5%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%22M11%205%206%209H2v6h4l5%204zM15.5%208.5a5%205%200%200%201%200%207M19%205a10%2010%200%200%201%200%2014%22%2F%3E%3C%2Fsvg%3E");
   --ico-shower: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27%23000%27%20stroke-width%3D%271.5%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%22M4%204a4%204%200%200%201%208%200v2%22%2F%3E%3Cpath%20d%3D%22M12%206h6a3%203%200%200%201%203%203v1H9V6z%22%2F%3E%3Cpath%20d%3D%22M11%2014v.01M15%2014v.01M19%2014v.01M9%2018v.01M13%2018v.01M17%2018v.01%22%2F%3E%3C%2Fsvg%3E");
   --ico-plug: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27%23000%27%20stroke-width%3D%271.5%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%22M9%202v6M15%202v6M6%208h12v4a6%206%200%200%201-12%200zM12%2018v4%22%2F%3E%3C%2Fsvg%3E");
+  --ico-pause: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27%23000%27%20stroke-width%3D%271.5%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%22M7%204h3v16H7zM14%204h3v16h-3z%22%2F%3E%3C%2Fsvg%3E");
+  --ico-play: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27%23000%27%20stroke-width%3D%271.5%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%22M7%204l13%208-13%208z%22%2F%3E%3C%2Fsvg%3E");
   --ico-arrow-up: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27%23000%27%20stroke-width%3D%271.5%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%22M12%2019V5M5%2012l7-7%207%207%22%2F%3E%3C%2Fsvg%3E");
   --ico-sparkle: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27%23000%27%20stroke-width%3D%271.5%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%22M12%203v4M12%2017v4M3%2012h4M17%2012h4M6%206l2.5%202.5M15.5%2015.5%2018%2018M18%206l-2.5%202.5M8.5%2015.5%206%2018%22%2F%3E%3C%2Fsvg%3E");
 }
@@ -57,5 +59,7 @@
 .i-volume { --i: var(--ico-volume); }
 .i-shower { --i: var(--ico-shower); }
 .i-plug { --i: var(--ico-plug); }
+.i-pause { --i: var(--ico-pause); }
+.i-play { --i: var(--ico-play); }
 .i-arrow-up { --i: var(--ico-arrow-up); }
 .i-sparkle { --i: var(--ico-sparkle); }

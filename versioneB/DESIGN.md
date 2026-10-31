@@ -46,7 +46,7 @@ Regola: l'accento compare solo su bottone primario, link, eyebrow e parole in co
 - Scala a 8: `--s-1` 4 · `--s-2` 8 · `--s-3` 12 · `--s-4` 16 · `--s-5` 24 · `--s-6` 32 · `--s-7` 48 · `--s-8` 64 · `--s-9` 96 px.
 - Sezioni: `--section-y` 64-120 px (fluido). Griglia: `--gap-grid` 20-32 px. Contenitore 1200 px, gutter 20-48 px.
 - Forme: un solo raggio (`--radius` 2 px, `--radius-md` 4 px) più **l'arco** (`.arch`), richiamo alle finestre dei villini Liberty, usato in un solo punto per pagina.
-- Movimento: reveal 0,7 s, spostamento 16 px; hover 0,2 s. Nessuna animazione cambia la spaziatura del testo. Con `prefers-reduced-motion` tutto si ferma e il video non viene caricato.
+- Movimento: reveal 0,7 s, spostamento 16 px; hover 0,2 s. Nessuna animazione cambia la spaziatura del testo. Con `prefers-reduced-motion` tutto si ferma e la hero mostra solo la prima foto.
 - Breakpoint: 640 · 900 (passaggio menu mobile → desktop) · 1100.
 
 ## 3. Componenti
@@ -69,7 +69,8 @@ Regola: l'accento compare solo su bottone primario, link, eyebrow e parole in co
 | Chip radio | `.chip` | - | `input` reale sotto lo stile; focus visibile |
 | Tab | `[role=tablist]` | - | frecce, Home, End |
 | Barra mobile | `.actionbar` | Chiama · WhatsApp · Prenota | compare dopo la hero, sparisce vicino al footer |
-| Avviso cookie | `.notice` | - | solo informativo; una sola volta, nella home, dopo lo scroll; non ruba il focus |
+| Hero con Ken Burns | `.hero__slide` | 5 foto | 7 s a foto, zoom/panoramica 9 s, dissolvenza 1,9 s; pulsante di pausa (`.hero__pause`); si ferma fuori schermo e a scheda in secondo piano |
+| Avviso cookie | `.notice` | - | solo informativo; una sola volta, nella home, all'apertura; in alto per non coprire il modulo date; non ruba il focus |
 | Pulsante "torna su" | `.totop` | - | 48 px, quadrato con bordo sottile; compare dopo 700 px di scroll, sopra la barra mobile; riporta il focus sul logo |
 
 ### Stati del bottone primario
@@ -102,7 +103,7 @@ Regola: l'accento compare solo su bottone primario, link, eyebrow e parole in co
 | Altezza home | 7.618 px | 5.725 px |
 | Inizio camere | ~3.800 px | 904 px |
 | Hero (foto) | 850 KB JPG | 160 KB WebP |
-| Hero (video) | 3,4 MB (anche mobile 1,8 MB) | 0,5 MB, 5 secondi, solo desktop senza risparmio dati |
+| Hero | video 3,4 MB (mobile 1,8 MB) + foto 850 KB | prima foto 160 KB; le altre 4 (circa 100 KB ciascuna) arrivano dopo il caricamento |
 | Immagini | JPG 0,8-1,2 MB l'una | WebP 480/800/1200/1600 con `srcset` e dimensioni dichiarate |
 | JavaScript | 26 KB (main + cookie banner) | 18 KB, nessuna dipendenza |
 
@@ -110,5 +111,5 @@ Regola: l'accento compare solo su bottone primario, link, eyebrow e parole in co
 
 Calcolato: 26 coppie colore, tutte conformi dopo la correzione di placeholder e bordi dei campi.
 Verificato nel browser: nessun campo senza etichetta, nessuna immagine senza `alt`, un solo `h1` per pagina, gerarchia dei titoli coerente, link e ancore integri, `lang="it"`, skip link, landmark (`header`, `nav` etichettati, `main`, `footer`).
-Il movimento della hero (video e leggero zoom) dura 5 secondi e poi si ferma: sotto la soglia dei 5 secondi non serve un pulsante di pausa (WCAG 2.2.2). Non parte con `prefers-reduced-motion` o risparmio dati.
+La hero si muove in automatico (foto con Ken Burns) e per questo ha un pulsante di pausa (WCAG 2.2.2), raggiungibile da tastiera. Si ferma da sola con `prefers-reduced-motion`, quando esce dallo schermo e quando la scheda è in secondo piano.
 Da fare a mano: VoiceOver/NVDA, Safari/Firefox, zoom 200%, dispositivi reali.

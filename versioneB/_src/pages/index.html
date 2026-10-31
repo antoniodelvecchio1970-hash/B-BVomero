@@ -7,10 +7,10 @@ body: page-home
 ---
 <section class="hero" aria-labelledby="hero-title">
   <div class="hero__media" data-hero-media>
-    {{img hero | Il Golfo di Napoli e il Vesuvio visti dall'alto | 100vw | hero__img | eager}}
-    <video class="hero__video" muted playsinline preload="none" aria-hidden="true" tabindex="-1" data-hero-video data-src="assets/video/hero.mp4"></video>
+    {{hero_slides}}
     <div class="hero__scrim"></div>
   </div>
+  <button class="hero__pause" type="button" data-hero-pause aria-label="Metti in pausa le immagini">{{icon pause}}</button>
 
   <div class="container hero__content">
     <p class="eyebrow eyebrow--light">Vomero · Napoli</p>

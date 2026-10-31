@@ -70,23 +70,66 @@
     }
   }
 
-  /* ---------- Video hero (solo desktop, senza risparmio dati, senza reduced motion) ---------- */
-  var vid = $('[data-hero-video]');
-  var saveData = navigator.connection && navigator.connection.saveData;
-  if (vid && !reduced && desktop.matches && !saveData) {
-    var startVideo = function () {
-      // Il video parte da fermo sul primo fotogramma (identico alla foto) e solo allora si sovrappone:
-      // la dissolvenza è invisibile e non c'è nessun lampo scuro.
-      vid.addEventListener('loadeddata', function () {
-        vid.classList.add('is-playing');
-        var p = vid.play();
-        if (p && p.catch) p.catch(function () { /* autoplay bloccato: resta il primo fotogramma */ });
-      }, { once: true });
-      vid.src = vid.getAttribute('data-src');
-      vid.load();
+  /* ---------- Hero: diapositive con effetto Ken Burns ----------
+     Ogni foto resta 7 s con zoom e panoramica lenti, poi si dissolve nella successiva.
+     Con prefers-reduced-motion resta ferma la prima foto. Il pulsante di pausa ferma tutto
+     (WCAG 2.2.2); la rotazione si ferma anche quando la hero esce dallo schermo o la scheda è in secondo piano. */
+  var heroEl = $('.hero');
+  var slides = $$('.hero__slide');
+  var pauseBtn = $('[data-hero-pause]');
+  if (heroEl && slides.length > 1 && !reduced) {
+    var SLIDE_MS = 7000, FADE_MS = 1900;
+    var idx = 0, timer = null, userPaused = false, heroVisible = true;
+
+    var build = function (el) {
+      if (el.querySelector('img') || !el.getAttribute('data-slide-img')) return el.querySelector('img');
+      var d = JSON.parse(el.getAttribute('data-slide-img'));
+      var img = new Image();
+      img.decoding = 'async'; img.sizes = '100vw'; img.srcset = d.srcset; img.src = d.src;
+      img.width = d.w; img.height = d.h; img.alt = d.alt;
+      el.appendChild(img);
+      return img;
     };
-    if ('requestIdleCallback' in window) window.requestIdleCallback(startVideo, { timeout: 2500 });
-    else window.setTimeout(startVideo, 1200);
+    var whenReady = function (img, cb) {
+      if (!img || img.complete) { cb(); return; }
+      var done = function () { img.removeEventListener('load', done); img.removeEventListener('error', done); cb(); };
+      img.addEventListener('load', done); img.addEventListener('error', done);
+    };
+    var show = function (n) {
+      var prev = slides[idx], next = slides[n];
+      whenReady(build(next), function () {
+        prev.classList.remove('is-active'); prev.classList.add('is-leaving');
+        next.classList.add('is-active');
+        window.setTimeout(function () { prev.classList.remove('is-leaving'); }, FADE_MS);
+        idx = n;
+        build(slides[(n + 1) % slides.length]);   // prepara già la successiva
+      });
+    };
+    var stop = function () { if (timer) { window.clearInterval(timer); timer = null; } };
+    var sync = function () {
+      var run = !userPaused && heroVisible && !document.hidden;
+      if (run && !timer) timer = window.setInterval(function () { show((idx + 1) % slides.length); }, SLIDE_MS);
+      if (!run) stop();
+    };
+
+    heroEl.classList.add('is-sliding');
+    var preload = function () { build(slides[1]); };
+    if (document.readyState === 'complete') preload(); else window.addEventListener('load', preload, { once: true });
+    sync();
+
+    document.addEventListener('visibilitychange', sync);
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) { heroVisible = entries[0].isIntersecting; sync(); }, { threshold: 0.15 }).observe(heroEl);
+    }
+    if (pauseBtn) {
+      pauseBtn.addEventListener('click', function () {
+        userPaused = !userPaused;
+        heroEl.classList.toggle('is-paused', userPaused);
+        pauseBtn.setAttribute('aria-label', userPaused ? 'Riprendi le immagini' : 'Metti in pausa le immagini');
+        $('.icon', pauseBtn).className = 'icon ' + (userPaused ? 'i-play' : 'i-pause');
+        sync();
+      });
+    }
   }
 
   /* ---------- Date: minimi, notti, partenza automatica ---------- */
@@ -314,22 +357,17 @@
 
   /* ---------- Avviso informativo sui cookie (solo cookie tecnici) ----------
      Non è un banner di consenso: con soli cookie tecnici il consenso non serve (Garante, Linee guida
-     10/6/2021, par. 7.1). Compare una sola volta, nella home, alla prima visita e dopo un po' di scroll,
-     così non copre la hero. Il link "#cb-open" nelle pagine legali lo mostra di nuovo su richiesta. */
+     10/6/2021, par. 7.1). Compare una sola volta, nella home, all'apertura alla prima visita
+     (in alto, per non coprire il modulo date). "?avviso" nell'indirizzo lo mostra di nuovo per le prove;
+     il link "#cb-open" nelle pagine legali lo mostra su richiesta. */
   var notice = $('[data-notice]');
   var NKEY = 'bb_notice_v1';
   function noticeSeen() { try { return localStorage.getItem(NKEY) === '1'; } catch (e) { return false; } }
   function markNoticeSeen() { try { localStorage.setItem(NKEY, '1'); } catch (e) { /* modalità privata: nessun problema */ } }
   if (notice) {
-    if (document.body.classList.contains('page-home') && !noticeSeen()) {
-      var onFirstScroll = function () {
-        if (window.scrollY > 160) {
-          notice.hidden = false;
-          markNoticeSeen();            // visto una volta: non si ripresenta nelle altre pagine né alla prossima visita
-          window.removeEventListener('scroll', onFirstScroll);
-        }
-      };
-      window.addEventListener('scroll', onFirstScroll, { passive: true });
+    var forced = /[?&]avviso(=|&|$)/.test(window.location.search);
+    if (document.body.classList.contains('page-home') && (forced || !noticeSeen())) {
+      window.setTimeout(function () { notice.hidden = false; markNoticeSeen(); }, 700);
     }
     $('[data-notice-close]', notice).addEventListener('click', function () { notice.hidden = true; markNoticeSeen(); });
     $$('a[href="#cb-open"]').forEach(function (a) {

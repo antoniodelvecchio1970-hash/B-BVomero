@@ -17,7 +17,7 @@ Macro disponibili nelle pagine ( {{ nome argomento | argomento }} ):
   icon nome [| classe]         icona (maschera CSS)
   include nome                 inserisce un partial
   nav_links, room_cards, room_sections, room_table, room_chips, room_radios,
-  reviews, cin_line, year
+  reviews, hero_slides, cin_line, year
 """
 import html
 import json
@@ -65,6 +65,8 @@ ICONS = {
     "volume": '<path d="M11 5 6 9H2v6h4l5 4zM15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/>',
     "shower": '<path d="M4 4a4 4 0 0 1 8 0v2"/><path d="M12 6h6a3 3 0 0 1 3 3v1H9V6z"/><path d="M11 14v.01M15 14v.01M19 14v.01M9 18v.01M13 18v.01M17 18v.01"/>',
     "plug": '<path d="M9 2v6M15 2v6M6 8h12v4a6 6 0 0 1-12 0zM12 18v4"/>',
+    "pause": '<path d="M7 4h3v16H7zM14 4h3v16h-3z"/>',
+    "play": '<path d="M7 4l13 8-13 8z"/>',
     "arrow-up": '<path d="M12 19V5M5 12l7-7 7 7"/>',
     "sparkle": '<path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M18 6l-2.5 2.5M8.5 15.5 6 18"/>',
 }
@@ -236,6 +238,26 @@ def m_reviews(page):
     return "\n".join(out)
 
 
+def m_hero_slides(page):
+    """Prima diapositiva nel codice (LCP); le altre si creano via JavaScript, dopo il caricamento."""
+    out = []
+    for i, sl in enumerate(SITE["hero_slides"]):
+        s0, s1, x0, y0, x1, y1 = sl["kb"]
+        pos = sl.get("pos", "50% 50%")
+        style = (f"--s0:{s0};--s1:{s1};--x0:{x0};--y0:{y0};--x1:{x1};--y1:{y1};"
+                 f"--pos:{pos};--pos-m:{sl.get('pos_m', pos)}")
+        if i == 0:
+            out.append(f'<div class="hero__slide is-active" style="{style}">{img_tag(sl["img"], sl["alt"], "100vw", "", "eager")}</div>')
+        else:
+            m = MANIFEST[sl["img"]]
+            ws = m["widths"]
+            data = {"src": f"assets/img/{sl['img']}-{ws[1]}.webp",
+                    "srcset": ", ".join(f"assets/img/{sl['img']}-{w}.webp {w}w" for w in ws),
+                    "w": m["w"], "h": m["h"], "alt": sl["alt"]}
+            out.append(f'<div class="hero__slide" style="{style}" data-slide-img="{esc(json.dumps(data, ensure_ascii=False))}"></div>')
+    return "\n    ".join(out)
+
+
 NAV = [("camere", "Camere", "camere.html"), ("il-bb", "Il B&B", "il-bb.html"),
        ("napoli", "Napoli", "napoli.html"), ("contatti", "Contatti", "contatti.html")]
 
@@ -271,6 +293,7 @@ def make_macros(page):
         "room_chips": lambda: m_room_chips(page),
         "room_radios": lambda: m_room_radios(page),
         "reviews": lambda: m_reviews(page),
+        "hero_slides": lambda: m_hero_slides(page),
         "year": lambda: str(date.today().year),
         "cin_line": lambda: (f' · CIN {esc(SITE["legal"]["cin"])}' if SITE["legal"].get("cin") else ""),
         "page": lambda key: esc(page.get(key, "")),

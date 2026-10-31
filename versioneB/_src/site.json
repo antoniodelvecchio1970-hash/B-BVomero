@@ -1,15 +1,12 @@
 {
   "_nota": "Unica fonte dei dati variabili del sito. Modifica qui, poi lancia: python3 -I versioneB/_tools/build.py",
-
   "indexable": false,
   "form_endpoint": "",
-
   "brand": {
     "name": "B&B Vomero",
     "tagline": "Tre camere sulla collina del Vomero, a Napoli.",
     "_nota": "NOME PROVVISORIO: da sostituire con il nome definitivo della struttura."
   },
-
   "contact": {
     "phone_display": "+39 081 000 0000",
     "phone_tel": "+390810000000",
@@ -21,20 +18,17 @@
     "website": "www.esempio.it",
     "_nota": "Numero, email e indirizzo sono segnaposto (l'indirizzo arriva dalla versione A, da confermare)."
   },
-
   "legal": {
     "vat": "P.IVA 00000000000",
     "vat_number": "00000000000",
     "privacy_email": "privacy@example.com",
     "cin": ""
   },
-
   "hours": {
     "checkin": "14:00-20:00",
     "checkout": "entro le 11:00",
     "breakfast": "8:00-10:30"
   },
-
   "rooms": [
     {
       "slug": "standard",
@@ -103,7 +97,6 @@
       ]
     }
   ],
-
   "reviews": [
     {
       "quote": "Più che un B&B, una casa. Colazione eccezionale e Napoli a due passi, in funicolare.",
@@ -119,6 +112,75 @@
       "quote": "Camera curata nei dettagli e consigli preziosi su cosa vedere. Torneremo.",
       "author": "Ospite di esempio",
       "meta": "Roma"
+    }
+  ],
+  "hero_slides": [
+    {
+      "img": "hero",
+      "alt": "Il Golfo di Napoli e il Vesuvio visti dall'alto",
+      "pos": "50% 45%",
+      "kb": [
+        "1",
+        "1.12",
+        "0%",
+        "0%",
+        "-2.5%",
+        "-1.2%"
+      ]
+    },
+    {
+      "img": "vomero-panorama",
+      "alt": "Panorama di Napoli al tramonto dal Vomero, con il Vesuvio e il golfo",
+      "pos": "50% 50%",
+      "kb": [
+        "1.12",
+        "1",
+        "2.5%",
+        "-1%",
+        "0%",
+        "0%"
+      ]
+    },
+    {
+      "img": "terrace",
+      "alt": "Terrazza fiorita sul Vomero con il golfo e il Vesuvio sullo sfondo",
+      "pos": "50% 50%",
+      "pos_m": "20% 50%",
+      "kb": [
+        "1",
+        "1.12",
+        "0%",
+        "0%",
+        "2.5%",
+        "-1%"
+      ]
+    },
+    {
+      "img": "napoli-spaccanapoli",
+      "alt": "Veduta aerea di Spaccanapoli e delle cupole del centro storico",
+      "pos": "50% 50%",
+      "pos_m": "55% 50%",
+      "kb": [
+        "1.12",
+        "1",
+        "-2.5%",
+        "1%",
+        "0%",
+        "0%"
+      ]
+    },
+    {
+      "img": "vomero-night",
+      "alt": "Il golfo di Napoli di sera, illuminato, visto dalla collina",
+      "pos": "50% 50%",
+      "kb": [
+        "1",
+        "1.1",
+        "0%",
+        "0%",
+        "-1.5%",
+        "1.2%"
+      ]
     }
   ]
 }

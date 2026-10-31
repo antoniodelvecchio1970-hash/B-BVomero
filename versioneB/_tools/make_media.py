@@ -6,8 +6,7 @@ Cosa fa
   1. Converte le foto della versione A in WebP responsive (480/800/1200/1600 px)
      e scrive assets/img/manifest.json (usato da build.py per generare srcset).
   2. Ricava dal video di Napoli (cartella locale Video/, non su GitHub):
-       - assets/video/hero.mp4   (5 s, 1600 px, senza audio, ~0,5 MB)
-       - il fotogramma iniziale, usato come poster dell'hero (stessa inquadratura).
+       - un fotogramma, usato come prima foto della hero (baia di Napoli dall'alto).
 
 Come si usa (dalla cartella principale del progetto)
   python3 -I versioneB/_tools/make_media.py
@@ -25,11 +24,9 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parents[2]          # cartella del progetto
 OUT = ROOT / "versioneB" / "assets"
 IMG_OUT = OUT / "img"
-VIDEO_OUT = OUT / "video"
 SRC_IMAGES = ROOT / "assets" / "images"
 SRC_VIDEO = ROOT / "Video" / "15673263-uhd_3840_2160_60fps.mp4"   # baia di Napoli dall'alto
 VIDEO_START = 1.0     # secondi
-VIDEO_LEN = 5.0       # 5 s: oltre i 5 s servirebbe un controllo di pausa (WCAG 2.2.2)
 
 # nome nel sito  <-  file sorgente in assets/images/
 SOURCES = {
@@ -68,7 +65,6 @@ def export(img: Image.Image, name: str, quality: int = QUALITY, widths=WIDTHS):
 
 def main():
     IMG_OUT.mkdir(parents=True, exist_ok=True)
-    VIDEO_OUT.mkdir(parents=True, exist_ok=True)
     manifest = {}
 
     # --- video + poster -----------------------------------------------------
@@ -79,14 +75,8 @@ def main():
              "-frames:v", "1", "-vf", "scale=1920:-2", str(frame)], check=True)
         manifest["hero"] = export(Image.open(frame).convert("RGB"), "hero", quality=80,
                                   widths=[480, 800, 1280, 1920])
-        subprocess.run(
-            ["ffmpeg", "-v", "error", "-y", "-ss", str(VIDEO_START), "-t", str(VIDEO_LEN),
-             "-i", str(SRC_VIDEO), "-an", "-vf", "scale=1600:-2,fps=24",
-             "-c:v", "libx264", "-crf", "29", "-preset", "slow", "-pix_fmt", "yuv420p",
-             "-movflags", "+faststart", str(VIDEO_OUT / "hero.mp4")], check=True)
-        print("video ok:", round((VIDEO_OUT / "hero.mp4").stat().st_size / 1e6, 2), "MB")
     else:
-        print("ATTENZIONE: video sorgente non trovato, hero e video non rigenerati:", SRC_VIDEO)
+        print("ATTENZIONE: video sorgente non trovato, la foto hero non è stata rigenerata:", SRC_VIDEO)
         old = IMG_OUT / "manifest.json"
         if old.exists():
             manifest.update({k: v for k, v in json.loads(old.read_text()).items() if k == "hero"})

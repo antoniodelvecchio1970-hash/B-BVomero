@@ -26,7 +26,6 @@ versioneB/
 │  ├─ css/   tokens.css (design token) · styles.css (componenti) · icons.css (generato)
 │  ├─ js/    app.js (comportamenti) · config.js (generato)
 │  ├─ img/   foto in WebP responsive + manifest.json
-│  └─ video/ hero.mp4 (5 secondi, 0,5 MB, solo desktop)
 ├─ _src/     sorgenti: site.json (dati), layout.html, partials/, pages/
 ├─ _tools/   build.py · make_media.py · port_legal.py
 ├─ DESIGN.md sistema di design e specifiche
@@ -48,11 +47,12 @@ python3 -I versioneB/_tools/build.py
 Per i testi delle pagine modifica i file in `_src/pages/`, poi rilancia lo stesso comando.
 Quando i dati saranno definitivi: in `site.json` metti `"indexable": true` (sparisce il `noindex`) e compila `legal.cin` (il Codice Identificativo Nazionale compare nel footer).
 
-## Foto e video
+## Foto e hero
 
 - Le foto vengono dalla versione A (`assets/images/`) e sono segnaposto. Per cambiarle, sostituisci i file o modifica `SOURCES` in `_tools/make_media.py`, poi:
   `python3 -I versioneB/_tools/make_media.py` e di nuovo `build.py`.
-- Il video della hero (baia di Napoli dall'alto) parte dalla cartella locale `Video/`, che non è su GitHub. Il file già generato è `assets/video/hero.mp4`.
+- La hero della home è una serie di 5 foto con effetto Ken Burns (zoom e panoramica lenti, 7 secondi a foto, dissolvenza incrociata). Si cambiano in `_src/site.json` → `hero_slides` (foto, testo alternativo, punto di messa a fuoco e movimento). La prima foto è un fotogramma del video di Napoli, preso dalla cartella locale `Video/` (non su GitHub): il file già generato è `assets/img/hero-*.webp`.
+- Il pulsante in basso a destra (in alto a destra su mobile) mette in pausa le immagini. Con `prefers-reduced-motion` resta ferma la prima foto.
 
 ## Il modulo di richiesta
 
@@ -72,8 +72,8 @@ Per riceverlo direttamente via email: crea un modulo su un servizio come Formspr
 | Prenota | solo in cima alla pagina | menu fisso, barra date in hero, barra mobile |
 | Menu | 5 voci + Prenota | 4 voci + Prenota (la colazione entra in "Il B&B") |
 | Contrasto bottone primario | 4,1:1 | 5,0:1 (tutte le coppie di token ≥ AA) |
-| Peso hero | foto 850 KB + video 3,4 MB | foto 160 KB (WebP) + video di 5 secondi da 0,5 MB, solo desktop |
-| Avviso cookie | banner da ~30% dello schermo mobile alla prima visita | avviso breve, una sola volta, solo nella home, dopo lo scroll |
+| Peso hero | foto 850 KB + video 3,4 MB | prima foto 160 KB (WebP); le altre quattro si caricano dopo, in sottofondo |
+| Avviso cookie | banner da ~30% dello schermo mobile alla prima visita, su ogni pagina | avviso breve in alto, una sola volta, solo nella home, all'apertura (con `?avviso` nell'indirizzo si rivede) |
 | Mappa Google | caricata subito | solo su richiesta |
 
 ## Verifiche fatte

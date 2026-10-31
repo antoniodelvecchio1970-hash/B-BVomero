@@ -239,11 +239,27 @@ p, li, dd { text-wrap: pretty; }
   min-height: 100svh; color: var(--on-dark); background: #20262b;
 }
 .hero__media { position: absolute; inset: 0; z-index: -1; overflow: hidden; }
-.hero__img, .hero__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%; }
-.hero__img, .hero__video { animation: drift 5s cubic-bezier(0.22, 0.61, 0.36, 1) both; }
-.hero__video { opacity: 0; transition: opacity 1.4s var(--ease); }
-.hero__video.is-playing { opacity: 1; }
-@keyframes drift { from { transform: scale(1.07); } to { transform: scale(1); } }
+/* Diapositive con effetto Ken Burns: zoom e panoramica lenti, dissolvenza incrociata */
+.hero__slide { position: absolute; inset: 0; opacity: 0; z-index: 0; transition: opacity 1.8s ease-in-out; }
+.hero__slide.is-active { opacity: 1; z-index: 1; }
+.hero__slide.is-leaving { opacity: 1; z-index: 0; }
+.hero__slide img { width: 100%; height: 100%; object-fit: cover; object-position: var(--pos, 50% 50%); }
+.hero__slide.is-active img, .hero__slide.is-leaving img { will-change: transform; animation: kenburns 9s linear both; }
+@keyframes kenburns {
+  from { transform: scale(var(--s0, 1)) translate(var(--x0, 0%), var(--y0, 0%)); }
+  to   { transform: scale(var(--s1, 1.1)) translate(var(--x1, 0%), var(--y1, 0%)); }
+}
+.hero.is-paused .hero__slide img { animation-play-state: paused; }
+@media (max-width: 899.98px) { .hero__slide img { object-position: var(--pos-m, var(--pos, 50% 50%)); } }
+.hero__pause {
+  position: absolute; z-index: 2; display: none; align-items: center; justify-content: center;
+  top: calc(var(--header-h) + 0.75rem); right: var(--gutter); width: 44px; height: 44px; padding: 0;
+  border: 1px solid rgba(250, 247, 242, 0.65); border-radius: 50%;
+  background: rgba(18, 18, 16, 0.4); color: var(--on-dark); transition: background-color var(--dur-1);
+}
+.hero__pause:hover { background: rgba(18, 18, 16, 0.7); }
+.hero.is-sliding .hero__pause { display: inline-flex; }
+@media (min-width: 900px) { .hero__pause { top: auto; bottom: 6.25rem; } }
 .hero__scrim {
   position: absolute; inset: 0;
   background:
@@ -566,16 +582,15 @@ p, li, dd { text-wrap: pretty; }
 @media (min-width: 900px) { .actionbar { display: none; } }
 
 .notice {
-  position: fixed; left: 0.75rem; right: 0.75rem; bottom: calc(0.75rem + env(safe-area-inset-bottom)); z-index: var(--z-notice);
+  position: fixed; top: calc(var(--header-h) + 0.75rem); left: 0.75rem; right: 0.75rem; z-index: var(--z-notice);
   display: flex; align-items: center; gap: var(--s-4); max-width: 34rem; padding: 0.8rem 0.9rem 0.8rem 1.1rem;
   background: var(--ink); color: var(--on-dark); border-radius: var(--radius-md); font-size: var(--fs-sm); line-height: 1.45;
-  box-shadow: 0 16px 40px -16px rgba(0, 0, 0, 0.5); transition: bottom var(--dur-3) var(--ease);
+  box-shadow: 0 16px 40px -16px rgba(0, 0, 0, 0.5);
 }
 .notice[hidden], body.is-locked .notice { display: none; }
 .notice a { color: var(--on-dark); }
 .notice .btn { flex: none; }
-body.has-actionbar .notice { bottom: calc(5rem + env(safe-area-inset-bottom)); }
-@media (min-width: 900px) { .notice { right: auto; left: 1.25rem; bottom: 1.25rem; } body.has-actionbar .notice { bottom: 1.25rem; } }
+@media (min-width: 900px) { .notice { left: auto; right: 1.25rem; max-width: 27rem; } }
 
 /* ---------- Pulsante "torna su" ---------- */
 .totop {

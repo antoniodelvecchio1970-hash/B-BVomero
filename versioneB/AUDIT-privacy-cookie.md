@@ -10,7 +10,7 @@ Questo documento è un controllo tecnico, non una consulenza legale: i testi leg
 - non serve il consenso;
 - non serve un banner di scelta: il Garante dice che l'informazione può stare nella home o nell'informativa generale (Linee guida del 10 giugno 2021, par. 5 e 7.1).
 
-Prima, l'avviso si ripresentava su ogni pagina finché non si premeva "Ho capito". **Ora compare una sola volta, nella home, alla prima visita**, dopo un po' di scroll (così non copre la hero). Dopo la prima volta non torna, né nella home né nelle altre pagine. Chi vuole rileggerlo trova il link "Mostra di nuovo l'avviso" nella Cookie policy. Il link alla Cookie policy è sempre nel footer di ogni pagina.
+Prima, l'avviso si ripresentava su ogni pagina finché non si premeva "Ho capito". **Ora compare una sola volta, nella home, alla prima visita**, subito all'apertura e in alto (così non copre il modulo date). Per rivederlo in fase di prova basta aggiungere `?avviso` all'indirizzo della home, oppure cancellare i dati del sito nel browser. Dopo la prima volta non torna, né nella home né nelle altre pagine. Chi vuole rileggerlo trova il link "Mostra di nuovo l'avviso" nella Cookie policy. Il link alla Cookie policy è sempre nel footer di ogni pagina.
 
 Il "ricordo" dell'avviso è un dato nel `localStorage` del browser (`bb_notice_v1`), mai inviato al server.
 
@@ -71,7 +71,7 @@ Alternativa: caricare i font solo dopo un consenso, ma obbliga a un banner con s
 
 ## 5. Modifiche al codice in questo giro
 
-- `assets/js/app.js`: avviso mostrato una sola volta, solo nella home, memorizzato nel momento in cui compare.
+- `assets/js/app.js`: avviso mostrato una sola volta, solo nella home, all'apertura; memorizzato nel momento in cui compare.
 - `_src/partials/notice.html`: testo breve e aggiornato ("Solo cookie tecnici. I font arrivano da Google Fonts e la mappa di Google si carica solo se la richiedi.").
 - `_src/pages/cookie-policy.html`, `_src/pages/privacy.html`: allineati al comportamento reale (vedi voci 4, 7, 9, 10).
 - `_src/pages/contatti.html`: testo della casella privacy e della mappa.
