@@ -1,0 +1,163 @@
+{
+  "_nota": "Fonte unica dei dati per la versione GeminiArgon. Modifica qui e rigenera con: python3 -I GeminiArgon/_tools/build.py",
+  "indexable": false,
+  "form_endpoint": "",
+  "brand": {
+    "name": "B&B Vomero",
+    "subtitle": "Dimora Liberty sulla collina di Napoli",
+    "tagline": "Tre camere silenziose sulla collina del Vomero, a cinque minuti di funicolare dal centro storico di Napoli.",
+    "_nota": "Dati segnaposto dichiarati nel documento DESIGN-UX-AUDIT.md."
+  },
+  "contact": {
+    "phone_display": "+39 081 1847 3320",
+    "phone_tel": "+3908118473320",
+    "whatsapp": "3908118473320",
+    "email": "info@bbvomero.it",
+    "address_street": "Via Belvedere, 88",
+    "address_city": "80127 Napoli (NA) · Quartiere Vomero",
+    "maps_query": "Via Belvedere 88, 80127 Napoli",
+    "website": "www.bbvomero.it",
+    "response_time": "Risposta diretta entro 2 ore (8:00-22:00)"
+  },
+  "legal": {
+    "vat": "P.IVA 12345678901 (segnaposto)",
+    "vat_number": "12345678901",
+    "privacy_email": "info@bbvomero.it",
+    "cin": "IT063049C100000000 (segnaposto)"
+  },
+  "hours": {
+    "checkin": "14:00-20:00",
+    "checkout": "entro le 11:00",
+    "breakfast": "8:00-10:30"
+  },
+  "rooms": [
+    {
+      "slug": "standard",
+      "num": "01",
+      "name": "Camera Standard",
+      "subtitle": "Silenziosa e raccolta, affacciata sulla corte interna",
+      "img": "room-standard",
+      "alt": "Camera Standard: letto matrimoniale Queen size con testiera in legno, cuscini color terracotta e finestra sulla corte interna",
+      "sqm": 20,
+      "guests": 2,
+      "bed": "Queen size 160×200 cm",
+      "view": "Corte interna silenziosa",
+      "balcony": "Finestra su corte",
+      "bath": "Bagno privato con doccia a pioggia",
+      "extra": "Macchina espresso e bollitore",
+      "price_from": 95,
+      "teaser": "Ideale per chi cerca silenzio assoluto dopo una giornata in centro. Affaccio sulla corte interna, letto Queen con topper in memory e scrivania.",
+      "text": "Progettata per coppie o viaggiatori singoli che cercano una base silenziosa e funzionale. L'affaccio sulla corte interna garantisce quiete a ogni ora; il letto matrimoniale Queen size è vestito con percalle di cotone e affiancato da una comoda postazione di lavoro.",
+      "highlights": [
+        "20 m² · fino a 2 ospiti · Corte interna",
+        "Letto Queen 160×200 cm in cotone percalle",
+        "Bagno privato con doccia a pioggia",
+        "Wi-Fi fibra 1 Gbit, Smart TV 43\" e angolo caffè"
+      ],
+      "features": [
+        "Letto Queen size (160×200 cm) con materasso artigianale e topper memory",
+        "Bagno privato con ampia doccia a pioggia, scaldasalviette e phon professionale",
+        "Wi-Fi in fibra 1 Gbit gratuito, prese USB accanto al letto e Smart TV 43\" 4K",
+        "Macchina per caffè espresso, bollitore elettrico con selezione di tisane e climatizzazione autonoma"
+      ]
+    },
+    {
+      "slug": "superior",
+      "num": "02",
+      "name": "Camera Superior",
+      "subtitle": "Soffitti d'epoca e balconcino sulle vie alberate",
+      "img": "room-superior",
+      "alt": "Camera Superior: stanza luminosa con parquet d'epoca, letto King size e porte-finestre sul balconcino privato",
+      "sqm": 28,
+      "guests": 2,
+      "bed": "King size 180×200 cm",
+      "view": "Viali alberati del Vomero",
+      "balcony": "Balconcino privato con tavolino",
+      "bath": "Bagno in resina e marmo",
+      "extra": "Frigobar con bibite campane",
+      "price_from": 120,
+      "teaser": "Volumi ampi, parquet originale restaurato e un balconcino privato con tavolino affacciato sui viali alberati del quartiere.",
+      "text": "Ampie altezze e luce naturale diffusa, prolungate dal balconcino privato che guarda la trama Liberty del Vomero. Il parquet d'epoca restaurato e i tessuti in lino naturale restituiscono il calore di una vera casa napoletana.",
+      "highlights": [
+        "28 m² · fino a 2 ospiti · Balconcino privato",
+        "Letto King 180×200 cm in lino naturale",
+        "Parquet d'epoca e bagno in resina e marmo",
+        "Frigobar con selezione campana e Wi-Fi fibra"
+      ],
+      "features": [
+        "Balconcino privato arredato con tavolino e sedute per la lettura",
+        "Letto King size (180×200 cm) con biancheria in lino naturale",
+        "Bagno in resina e marmo con doccia walk-in e set cortesia biologico",
+        "Frigobar rifornito con bibite artigianali campane, macchina espresso e Wi-Fi in fibra"
+      ]
+    },
+    {
+      "slug": "suite",
+      "num": "03",
+      "name": "Suite Vomero",
+      "subtitle": "Salotto indipendente, camino d'epoca e vasca a vista",
+      "img": "room-suite",
+      "alt": "Suite Vomero: salotto indipendente con divano chiaro, poltrona terracotta, balcone e camera matrimoniale sul fondo",
+      "sqm": 42,
+      "guests": 3,
+      "bed": "King size + divano letto",
+      "view": "Balcone panoramico sul quartiere",
+      "balcony": "Balcone ampio",
+      "bath": "Vasca freestanding + doppia doccia",
+      "extra": "Colazione in suite inclusa su richiesta",
+      "price_from": 165,
+      "teaser": "Oltre quaranta metri quadrati con zona giorno separata, camino storico, vasca freestanding e colazione servita in camera senza supplemento.",
+      "text": "La stanza padronale della palazzina: 42 metri quadrati divisi tra salotto indipendente con divano letto in velluto, camera matrimoniale, camino d'epoca e vasca freestanding. Pensata per chi desidera spazio, intimità e tempi lenti.",
+      "highlights": [
+        "42 m² · fino a 3 ospiti · Salotto e balcone",
+        "Letto King + divano letto in velluto",
+        "Vasca freestanding e doppia doccia a pioggia",
+        "Colazione in suite su richiesta senza supplemento"
+      ],
+      "features": [
+        "Salotto indipendente con camino d'epoca e divano letto per il terzo ospite",
+        "Vasca freestanding di design in camera più bagno con doppia doccia a pioggia",
+        "Accappatoi in spugna pesante, pantofole e linea cortesia biologica",
+        "Servizio di prima colazione in suite su richiesta, incluso nella tariffa"
+      ]
+    }
+  ],
+  "reviews": [
+    {
+      "quote": "Più che un B&B, una casa silenziosa. In cinque minuti di funicolare sei a Toledo, ma la sera torni nella pace del Vomero.",
+      "author": "Marco e Chiara",
+      "meta": "Milano · Soggiorno in Camera Superior (recensione segnaposto)"
+    },
+    {
+      "quote": "Sfogliatelle calde ogni mattina alle otto e consigli precisi per evitare le trappole turistiche. Accoglienza rara.",
+      "author": " Elena V.",
+      "meta": "Torino · Soggiorno in Camera Standard (recensione segnaposto)"
+    },
+    {
+      "quote": "La Suite Vomero ha una luce magnifica. Abbiamo lavorato due giorni grazie alla fibra veloce e visitato San Martino a piedi.",
+      "author": "famiglia Conti",
+      "meta": "Roma · Soggiorno in Suite Vomero (recensione segnaposto)"
+    }
+  ],
+  "hero_slides": [
+    {
+      "img": "hero",
+      "alt": "Veduta panoramica del Golfo di Napoli e del Vesuvio dall'alto della collina del Vomero",
+      "pos": "50% 45%",
+      "kb": ["1", "1.08", "0%", "0%", "-1.5%", "-1%"]
+    },
+    {
+      "img": "terrace",
+      "alt": "Terrazza fiorita al Vomero con vista sul mare di Napoli e sul profilo del Vesuvio",
+      "pos": "50% 50%",
+      "pos_m": "25% 50%",
+      "kb": ["1.08", "1", "1.5%", "-0.5%", "0%", "0%"]
+    },
+    {
+      "img": "vomero-panorama",
+      "alt": "Luce calda del tramonto sui tetti di Napoli e sul Golfo visti da San Martino",
+      "pos": "50% 50%",
+      "kb": ["1", "1.08", "0%", "0%", "1.5%", "-0.8%"]
+    }
+  ]
+}

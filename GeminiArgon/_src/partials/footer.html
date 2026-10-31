@@ -1,0 +1,59 @@
+<footer class="site-footer">
+  <section class="cta-final cta-final--{{page cta}}" aria-labelledby="cta-final-title">
+    <div class="container cta-final__grid">
+      <div>
+        <p class="eyebrow eyebrow--light">Contatto diretto senza intermediari</p>
+        <h2 class="h2 cta-final__title" id="cta-final-title">Conosci già le date del tuo <em>viaggio a Napoli?</em></h2>
+        <p class="cta-final__desc">Scrivici direttamente per conoscere disponibilità e migliore tariffa con colazione inclusa. Rispondiamo entro 2 ore, senza impegno.</p>
+      </div>
+      <div class="cta-final__actions">
+        <a class="btn btn--primary btn--lg" href="contatti.html#richiesta">Verifica disponibilità</a>
+        <a class="btn btn--outline-light btn--lg" href="{{href wa}}" target="_blank" rel="noopener">{{icon whatsapp}} Scrivici su WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="container footer__grid">
+    <div class="footer__brand">
+      <p class="footer__name">{{s brand.name}}</p>
+      <p class="footer__tagline">{{s brand.tagline}}</p>
+      <p class="meta-note" style="color: var(--on-dark-muted); margin-top: var(--sp-16);">{{s contact.response_time}}</p>
+    </div>
+
+    <nav class="footer__col" aria-label="Navigazione">
+      <p class="footer__heading">Navigazione</p>
+      <ul>
+        <li><a href="camere.html">Camere</a></li>
+        <li><a href="il-bb.html">Il B&amp;B</a></li>
+        <li><a href="colazione.html">Colazione</a></li>
+        <li><a href="napoli.html">Napoli</a></li>
+        <li><a href="contatti.html">Contatti</a></li>
+      </ul>
+    </nav>
+
+    <div class="footer__col">
+      <p class="footer__heading">Recapiti</p>
+      <address>
+        {{s contact.address_street}}<br>
+        {{s contact.address_city}}<br>
+        <a href="{{href tel}}">{{s contact.phone_display}}</a><br>
+        <a href="{{href mail}}">{{s contact.email}}</a>
+      </address>
+    </div>
+
+    <div class="footer__col">
+      <p class="footer__heading">Informazioni pratiche</p>
+      <ul>
+        <li>Check-in: <span class="nowrap">{{s hours.checkin}}</span></li>
+        <li>Check-out: {{s hours.checkout}}</li>
+        <li>Colazione: <span class="nowrap">{{s hours.breakfast}}</span> inclusa</li>
+        <li>Wi-Fi in fibra 1 Gbit gratuito</li>
+        <li>Animali domestici non ammessi</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer__legal">
+    <p>© {{year}} {{s brand.name}} · {{s legal.vat}} · CIN {{s legal.cin}} · <a href="privacy.html">Privacy policy</a> · <a href="cookie-policy.html">Cookie policy</a> · <a href="#cb-open">Informativa cookie</a></p>
+  </div>
+</footer>

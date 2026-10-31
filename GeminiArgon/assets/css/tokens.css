@@ -1,0 +1,91 @@
+/* ==========================================================================
+   GEMINI ARGON — Design Tokens (Direttive /ux-ui & Swiss Print-First)
+   - Regola cromatica 60 / 30 / 10 con contrasti WCAG 2.2 AA calcolati
+   - Scala spaziale rigorosa a multipli di 8 (4, 8, 16, 24, 32, 48, 64, 96, 120 px)
+   - 2 famiglie tipografiche, 2 pesi (400, 500), 7 livelli con rapporto >= 1,25
+   - Unico raggio angoli in tutto il sito (2px), filetti 1px, zero ombre/gradienti
+   ========================================================================== */
+:root {
+  /* 60% Neutro chiaro (Carta editoriale calda) */
+  --paper:          #F9F6F0;
+  --paper-alt:      #F0EAE1;
+  --surface:        #FFFFFF;
+
+  /* 30% Inchiostro e superfici scure di supporto */
+  --ink:            #181715;   /* 16,8:1 su --paper | 15,1:1 su --paper-alt */
+  --ink-body:       #3D3A35;   /* 10,4:1 su --paper |  9,3:1 su --paper-alt */
+  --ink-muted:      #5E5952;   /*  6,2:1 su --paper |  5,6:1 su --paper-alt | 6,7:1 su #FFF */
+
+  --dark:           #1F2421;   /* 14,5:1 con --on-dark */
+  --dark-deep:      #171B19;   /* 15,8:1 con --on-dark */
+  --on-dark:        #F9F6F0;
+  --on-dark-muted:  #C8C2B8;   /*  9,6:1 su --dark */
+
+  /* 10% Colore di accento unico (Terracotta Pompeiano) */
+  --accent:         #A84320;   /* Testo #FFF su --accent = 5,62:1 | --accent su --paper = 5,21:1 */
+  --accent-hover:   #873316;   /* Testo #FFF su --accent-hover = 7,65:1 */
+  --accent-on-dark: #E89B7E;   /* 6,8:1 su --dark */
+
+  /* Filetti editoriali 1px e bordi componenti (WCAG 1.4.11 >= 3:1) */
+  --rule:           #DCD4C8;   /* Filetto separatore editoriale 1px */
+  --rule-strong:    #C4B9A8;   /* Filetto strutturale marcato 1px */
+  --border-ui:      #787167;   /* Bordo input, select, chip: 4,6:1 su #FFF | 4,3:1 su --paper */
+
+  /* Stati di validazione (WCAG AA) */
+  --error:          #9E2A25;   /* 7,4:1 su #FFF */
+  --error-bg:       #FDF2F2;
+  --valid:          #236337;   /* 7,1:1 su #FFF */
+
+  /* Tipografia: 2 famiglie, 2 pesi (400, 500), 7 dimensioni (rapporto >= 1,25) */
+  --font-serif:     "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-sans:      "Jost", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  --fs-1: 0.8125rem;                                     /* 13 px — Eyebrow & micro-label */
+  --fs-2: 0.9375rem;                                     /* 15 px — Meta, tabelle, note */
+  --fs-3: 1.0625rem;                                     /* 17 px — Corpo del testo (>= 16px) */
+  --fs-4: 1.3125rem;                                     /* 21 px — Lead / Sottotitolo */
+  --fs-5: clamp(1.625rem, 1.4rem + 0.9vw, 2rem);         /* 26–32 px — H3 / Card title */
+  --fs-6: clamp(2.125rem, 1.7rem + 1.8vw, 2.875rem);     /* 34–46 px — H2 di sezione */
+  --fs-7: clamp(2.625rem, 2rem + 2.8vw, 4rem);           /* 42–64 px — H1 di pagina */
+
+  /* Scala spaziale rigorosa a multipli di 8 (4, 8, 16, 24, 32, 48, 64, 96, 120 px) */
+  --sp-4:   0.25rem;   /*   4 px */
+  --sp-8:   0.5rem;    /*   8 px */
+  --sp-16:  1rem;      /*  16 px */
+  --sp-24:  1.5rem;    /*  24 px */
+  --sp-32:  2rem;      /*  32 px */
+  --sp-48:  3rem;      /*  48 px */
+  --sp-64:  4rem;      /*  64 px */
+  --sp-96:  6rem;      /*  96 px */
+  --sp-120: 7.5rem;    /* 120 px */
+
+  /* Spazio verticale tra sezioni: 48–64px mobile, 64–96px desktop */
+  --section-space: clamp(3rem, 2rem + 4vw, 6rem);
+
+  /* Contenitore (1100–1200 px) e griglia */
+  --container-max: 1152px;  /* 72rem */
+  --container-pad: clamp(1rem, 4vw, 3rem);
+  --measure:       65ch;    /* 45–75 caratteri per riga */
+  --header-h:      64px;
+
+  /* Unico raggio degli angoli in tutto il sito */
+  --radius:        2px;
+
+  /* Movimento orientativo (0,2s – 0,6s, spostamento <= 16px) */
+  --ease-out:      cubic-bezier(0.22, 0.61, 0.36, 1);
+  --dur-fast:      0.2s;
+  --dur-med:       0.35s;
+  --dur-reveal:    0.55s;
+
+  /* Z-index */
+  --z-sticky:      30;
+  --z-thumbbar:    40;
+  --z-header:      50;
+  --z-notice:      60;
+}
+
+@media (min-width: 60em) {
+  :root {
+    --header-h: 72px;
+  }
+}
