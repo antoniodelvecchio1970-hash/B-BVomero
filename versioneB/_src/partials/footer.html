@@ -1,0 +1,55 @@
+<footer class="site-footer">
+  <section class="cta-band cta-band--{{page cta}}" aria-labelledby="cta-title">
+    <div class="container cta-band__grid">
+      <div class="cta-band__copy">
+        <p class="eyebrow eyebrow--light">Prenota il tuo soggiorno</p>
+        <h2 class="cta-band__title" id="cta-title">Hai già le date? <em>Scrivici.</em></h2>
+        <p class="cta-band__text">Ti rispondiamo entro poche ore con disponibilità e tariffa. Senza impegno.</p>
+      </div>
+      <div class="cta-band__actions">
+        <a class="btn btn--light btn--lg" href="contatti.html#richiesta">Verifica disponibilità</a>
+        <a class="btn btn--outline-light btn--lg" href="{{href wa}}" target="_blank" rel="noopener">{{icon whatsapp}} Scrivici su WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="container footer__grid">
+    <div class="footer__brand">
+      <p class="footer__name">{{s brand.name}}</p>
+      <p class="footer__tagline">{{s brand.tagline}}</p>
+    </div>
+    <nav class="footer__col" aria-label="Esplora">
+      <p class="footer__title">Esplora</p>
+      <ul>
+        <li><a href="camere.html">Camere</a></li>
+        <li><a href="il-bb.html">Il B&amp;B</a></li>
+        <li><a href="il-bb.html#colazione">Colazione</a></li>
+        <li><a href="napoli.html">Napoli</a></li>
+        <li><a href="contatti.html">Contatti</a></li>
+      </ul>
+    </nav>
+    <div class="footer__col">
+      <p class="footer__title">Contatti</p>
+      <address>
+        {{s contact.address_street}}<br>{{s contact.address_city}}<br>
+        <a href="{{href tel}}">{{s contact.phone_display}}</a><br>
+        <a href="{{href mail}}">{{s contact.email}}</a>
+      </address>
+    </div>
+    <div class="footer__col">
+      <p class="footer__title">Info pratiche</p>
+      <ul>
+        <li>Check-in {{s hours.checkin}}</li>
+        <li>Check-out {{s hours.checkout}}</li>
+        <li>Colazione inclusa, {{s hours.breakfast}}</li>
+        <li>Wi-Fi gratuito</li>
+        <li>Animali non ammessi</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer__legal">
+    <p>© {{year}} {{s brand.name}} · {{s legal.vat}} · <a href="privacy.html">Privacy</a> · <a href="cookie-policy.html">Cookie policy</a></p>
+    {{draft_note}}
+  </div>
+</footer>

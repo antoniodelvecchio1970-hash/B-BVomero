@@ -1,0 +1,84 @@
+/* ==========================================================================
+   VERSIONE B — design tokens
+   Unica fonte di colori, tipografia, spazi e movimento.
+   Regola 60/30/10: 60% carta, 30% inchiostro e oliva, 10% accento.
+   ========================================================================== */
+:root {
+  /* Colori — neutri caldi */
+  --paper:        #faf7f2;   /* sfondo base */
+  --paper-2:      #f1ebe0;   /* sezioni alternate */
+  --line:         #e4ded3;   /* filetti */
+  --line-strong:  #cdc5b6;   /* filetti marcati (decorativi) */
+  --field-border: #8a8378;   /* bordo di campi e chip (3,7:1 su bianco) */
+  --ink:          #1e1e1b;   /* titoli */
+  --ink-2:        #4a463f;   /* testo (8,8:1 su carta) */
+  --muted:        #6b645a;   /* testo secondario (5,5:1 su carta) */
+
+  /* Colori — superfici scure */
+  --olive:        #2f3a29;
+  --olive-deep:   #252e20;
+  --on-dark:      #faf7f2;
+  --on-dark-2:    #d6cfc1;
+  --on-dark-3:    #b9b1a2;
+  --accent-light: #e0a07a;   /* accento su fondo scuro */
+
+  /* Colore — accento (unico) */
+  --accent:       #b4532a;   /* bottoni: bianco su accento 4,99:1 */
+  --accent-hover: #8f3f1d;
+  --accent-text:  #a84a22;   /* testo/link su carta (5,4:1) */
+
+  /* Stati */
+  --error:        #a3322a;
+  --ok:           #2f5d3a;
+
+  /* Tipografia */
+  --font-display: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
+  --font-body:    "Jost", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --fs-xs:   0.8125rem;                                   /* 13 */
+  --fs-sm:   0.9375rem;                                   /* 15 */
+  --fs-base: 1.0625rem;                                   /* 17 */
+  --fs-md:   1.25rem;                                     /* 20 */
+  --fs-lg:   clamp(1.5rem, 1.25rem + 1vw, 1.875rem);      /* 24–30 */
+  --fs-xl:   clamp(2rem, 1.4rem + 2.4vw, 3.25rem);        /* 32–52 */
+  --fs-2xl:  clamp(2.5rem, 1.7rem + 3.2vw, 4.25rem);      /* 40–68 */
+  --fs-hero: clamp(3.25rem, 2rem + 4.4vw, 5.5rem);        /* 52–88 */
+
+  /* Spazi (scala a 8) */
+  --s-1: 0.25rem;
+  --s-2: 0.5rem;
+  --s-3: 0.75rem;
+  --s-4: 1rem;
+  --s-5: 1.5rem;
+  --s-6: 2rem;
+  --s-7: 3rem;
+  --s-8: 4rem;
+  --s-9: 6rem;
+  --gap-grid:  clamp(1.25rem, 2vw, 2rem);
+  --section-y: clamp(4rem, 2.5rem + 5vw, 7.5rem);
+
+  /* Layout */
+  --container: 1200px;
+  --narrow:    760px;
+  --gutter:    clamp(1.25rem, 4vw, 3rem);
+  --header-h:  64px;
+
+  /* Forme: un solo raggio + l'arco della casa */
+  --radius:    2px;
+  --radius-md: 4px;
+
+  /* Movimento */
+  --ease:  cubic-bezier(0.22, 0.61, 0.36, 1);
+  --dur-1: 0.2s;
+  --dur-2: 0.35s;
+  --dur-3: 0.7s;
+
+  /* Livelli */
+  --z-bar:    40;
+  --z-header: 50;
+  --z-notice: 60;
+}
+
+@media (min-width: 900px) {
+  :root { --header-h: 76px; }
+}

@@ -1,0 +1,177 @@
+title: Contatti e disponibilità
+description: Verifica la disponibilità delle camere: scrivici su WhatsApp, chiamaci o compila la richiesta. Ti rispondiamo entro poche ore.
+header: solid
+nav: contatti
+cta: no
+body: page-contatti
+---
+<section class="page-head">
+  <div class="container">
+    <p class="eyebrow">Contatti</p>
+    <h1 class="h1">Scrivici, <em>ti rispondiamo presto.</em></h1>
+    <p class="lead">Dicci le date e ti diamo disponibilità e tariffa entro poche ore. Puoi usare il canale che preferisci.</p>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="container">
+    <ul class="channels">
+      <li>
+        <a class="channel channel--main" href="{{href wa}}" target="_blank" rel="noopener">
+          {{icon whatsapp}}
+          <span class="channel__label">WhatsApp</span>
+          <span class="channel__value">Scrivici ora</span>
+          <span class="channel__hint">Il modo più veloce {{draft}}</span>
+        </a>
+      </li>
+      <li>
+        <a class="channel" href="{{href tel}}">
+          {{icon phone}}
+          <span class="channel__label">Telefono</span>
+          <span class="channel__value">{{s contact.phone_display}}</span>
+          <span class="channel__hint">Chiama, ti rispondiamo noi</span>
+        </a>
+      </li>
+      <li>
+        <a class="channel" href="{{href mail}}">
+          {{icon mail}}
+          <span class="channel__label">Email</span>
+          <span class="channel__value">{{s contact.email}}</span>
+          <span class="channel__hint">Per richieste con più dettagli</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="section section--alt" aria-labelledby="richiesta-title">
+  <div class="container request-layout">
+    <div class="request-card">
+      <h2 class="h3" id="richiesta-title">Verifica la disponibilità</h2>
+      <p class="note">Non è una prenotazione: ti scriviamo noi con disponibilità e tariffa.</p>
+
+      <form class="request" id="richiesta" data-request novalidate aria-labelledby="richiesta-title">
+        <div class="form-grid">
+          <div class="field">
+            <label for="f-in">Arrivo <span class="req" aria-hidden="true">*</span></label>
+            <input id="f-in" name="checkin" type="date" required autocomplete="off" aria-describedby="e-in">
+            <p class="field__error" id="e-in" data-error hidden></p>
+          </div>
+          <div class="field">
+            <label for="f-out">Partenza <span class="req" aria-hidden="true">*</span></label>
+            <input id="f-out" name="checkout" type="date" required autocomplete="off" aria-describedby="e-out">
+            <p class="field__error" id="e-out" data-error hidden></p>
+          </div>
+          <div class="field">
+            <label for="f-guests">Ospiti</label>
+            <select id="f-guests" name="ospiti">
+              <option value="1">1 ospite</option>
+              <option value="2" selected>2 ospiti</option>
+              <option value="3">3 ospiti</option>
+            </select>
+          </div>
+
+          <fieldset class="field field--wide chips">
+            <legend>Camera</legend>
+            <div class="chips__row">
+{{room_radios}}
+            </div>
+          </fieldset>
+
+          <div class="field field--half">
+            <label for="f-name">Nome e cognome <span class="req" aria-hidden="true">*</span></label>
+            <input id="f-name" name="nome" type="text" required autocomplete="name" aria-describedby="e-name">
+            <p class="field__error" id="e-name" data-error hidden></p>
+          </div>
+          <div class="field field--half">
+            <label for="f-email">Email <span class="req" aria-hidden="true">*</span></label>
+            <input id="f-email" name="email" type="email" required autocomplete="email" inputmode="email" placeholder="nome@email.it" aria-describedby="e-email">
+            <p class="field__error" id="e-email" data-error hidden></p>
+          </div>
+          <div class="field field--wide">
+            <label for="f-phone">Telefono <span class="opt">(facoltativo)</span></label>
+            <input id="f-phone" name="telefono" type="tel" autocomplete="tel" inputmode="tel" placeholder="+39 …">
+          </div>
+          <div class="field field--wide">
+            <label for="f-msg">Richieste o note <span class="opt">(facoltativo)</span></label>
+            <textarea id="f-msg" name="messaggio" rows="3" placeholder="Orario di arrivo, esigenze alimentari, occasioni speciali…"></textarea>
+          </div>
+
+          <div class="field field--wide field--check">
+            <label class="check">
+              <input type="checkbox" name="privacy" required aria-describedby="e-privacy">
+              <span>Ho letto l'<a href="privacy.html" target="_blank" rel="noopener">informativa sulla privacy</a> e acconsento al trattamento dei dati per rispondere alla mia richiesta.</span>
+            </label>
+            <p class="field__error" id="e-privacy" data-error hidden></p>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button class="btn btn--primary btn--lg" type="submit" data-submit>Invia la richiesta</button>
+          <p class="form-status" role="status" aria-live="polite" data-form-status></p>
+        </div>
+      </form>
+
+      <div class="request-done" data-request-done hidden tabindex="-1">
+        <h3 class="h3" data-done-title>Richiesta pronta</h3>
+        <p data-done-text></p>
+        <pre class="request-done__summary" data-done-summary></pre>
+        <div class="btn-row" data-done-actions></div>
+        <button class="link-arrow link-arrow--button" type="button" data-request-reset>Modifica la richiesta {{icon arrow-right}}</button>
+      </div>
+    </div>
+
+    <aside class="request-side" aria-label="Dove siamo">
+      <h2 class="h3">Dove siamo</h2>
+      <address class="address">
+        {{s contact.address_street}}<br>{{s contact.address_city}} {{draft}}
+      </address>
+      <div class="map" data-map data-query="{{s contact.maps_query}}">
+        <div class="map__placeholder">
+          {{icon pin}}
+          <p>La mappa usa Google Maps e si carica solo se lo chiedi.</p>
+          <button class="btn btn--secondary btn--sm" type="button" data-map-load>Mostra la mappa</button>
+        </div>
+      </div>
+      <a class="link-arrow" href="https://www.google.com/maps/search/?api=1&amp;query={{s contact.maps_query}}" target="_blank" rel="noopener">Apri in Google Maps {{icon arrow-up-right}}</a>
+      <dl class="facts-list facts-list--compact">
+        <div><dt>Check-in</dt><dd>{{s hours.checkin}}</dd></div>
+        <div><dt>Check-out</dt><dd>{{s hours.checkout}}</dd></div>
+        <div><dt>Risposta</dt><dd>Entro poche ore</dd></div>
+      </dl>
+    </aside>
+  </div>
+</section>
+
+<section class="section" id="come-arrivare" aria-labelledby="arrivo-title">
+  <div class="container">
+    <header class="section__head section__head--stack">
+      <p class="eyebrow">Come raggiungerci</p>
+      <h2 class="h2" id="arrivo-title">Da dove <em>arrivi?</em></h2>
+    </header>
+    <div class="tabs" data-tabs>
+      <div class="tabs__list" role="tablist" aria-label="Come arrivare">
+        <button class="tab" role="tab" type="button" id="tab-aeroporto" aria-controls="panel-aeroporto" aria-selected="true">{{icon plane}} Aeroporto</button>
+        <button class="tab" role="tab" type="button" id="tab-stazione" aria-controls="panel-stazione" aria-selected="false" tabindex="-1">{{icon tram}} Stazione</button>
+        <button class="tab" role="tab" type="button" id="tab-porto" aria-controls="panel-porto" aria-selected="false" tabindex="-1">{{icon anchor}} Porto</button>
+        <button class="tab" role="tab" type="button" id="tab-auto" aria-controls="panel-auto" aria-selected="false" tabindex="-1">{{icon car}} In auto</button>
+      </div>
+      <div class="tabs__panel" role="tabpanel" id="panel-aeroporto" aria-labelledby="tab-aeroporto" tabindex="0">
+        <h3 class="h4">Dall'aeroporto di Capodichino</h3>
+        <p>Prendi l'Alibus fino a Piazza Municipio, poi la Funicolare Centrale fino al Vomero. In alternativa, un taxi con tariffa predeterminata dal Comune.</p>
+      </div>
+      <div class="tabs__panel" role="tabpanel" id="panel-stazione" aria-labelledby="tab-stazione" tabindex="0" hidden>
+        <h3 class="h4">Dalla Stazione Centrale</h3>
+        <p>Metro Linea 1, fermata Piazza Vanvitelli: circa 15 minuti.</p>
+      </div>
+      <div class="tabs__panel" role="tabpanel" id="panel-porto" aria-labelledby="tab-porto" tabindex="0" hidden>
+        <h3 class="h4">Dal porto e dal lungomare</h3>
+        <p>Dal Molo Beverello e dal lungomare prendi la Funicolare di Chiaia o la Centrale dal centro: ti portano in pochi minuti al Vomero.</p>
+      </div>
+      <div class="tabs__panel" role="tabpanel" id="panel-auto" aria-labelledby="tab-auto" tabindex="0" hidden>
+        <h3 class="h4">In auto</h3>
+        <p>A 100 metri dalla struttura c'è un garage privato custodito e convenzionato. Si prenota con noi, prima dell'arrivo.</p>
+      </div>
+    </div>
+  </div>
+</section>

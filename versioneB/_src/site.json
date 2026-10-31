@@ -1,0 +1,124 @@
+{
+  "_nota": "Unica fonte dei dati variabili del sito. Modifica qui, poi lancia: python3 -I versioneB/_tools/build.py",
+
+  "draft": true,
+  "indexable": false,
+  "form_endpoint": "",
+
+  "brand": {
+    "name": "B&B Vomero",
+    "tagline": "Tre camere sulla collina del Vomero, a Napoli.",
+    "_nota": "NOME PROVVISORIO: da sostituire con il nome definitivo della struttura."
+  },
+
+  "contact": {
+    "phone_display": "+39 081 000 0000",
+    "phone_tel": "+390810000000",
+    "whatsapp": "390810000000",
+    "email": "info@example.com",
+    "address_street": "Via Belvedere, 88",
+    "address_city": "80127 Napoli (NA)",
+    "maps_query": "Via Belvedere 88, 80127 Napoli",
+    "website": "www.esempio.it",
+    "_nota": "Numero, email e indirizzo sono segnaposto (l'indirizzo arriva dalla versione A, da confermare)."
+  },
+
+  "legal": {
+    "vat": "P.IVA 00000000000",
+    "vat_number": "00000000000",
+    "privacy_email": "privacy@example.com"
+  },
+
+  "hours": {
+    "checkin": "14:00–20:00",
+    "checkout": "entro le 11:00",
+    "breakfast": "8:00–10:30"
+  },
+
+  "rooms": [
+    {
+      "slug": "standard",
+      "name": "Camera Standard",
+      "img": "room-standard",
+      "alt": "Camera Standard: letto matrimoniale con testiera in legno, cuscini color terracotta e luce naturale dalla finestra",
+      "sqm": 20,
+      "guests": 2,
+      "bed": "Queen size 160×200",
+      "view": "Corte interna riservata",
+      "balcony": "No",
+      "bath": "Doccia a pioggia",
+      "extra": "Macchina da caffè espresso",
+      "price_from": 95,
+      "teaser": "Silenziosa e raccolta, affaccia sulla corte interna. Letto Queen, scrivania e bagno con doccia a pioggia.",
+      "text": "Perfetta per coppie o viaggiatori singoli che cercano una base comoda e silenziosa. Lenzuola in cotone percalle, scrivania da lavoro e affaccio su una corte interna riservata.",
+      "features": [
+        "Letto Queen size (160×200 cm) con topper memory",
+        "Bagno privato con doccia a pioggia e scaldasalviette",
+        "Wi-Fi in fibra e Smart TV 43\" 4K con streaming",
+        "Macchina da caffè espresso e bollitore per tisane"
+      ]
+    },
+    {
+      "slug": "superior",
+      "name": "Camera Superior",
+      "img": "room-superior",
+      "alt": "Camera Superior: letto con testiera in legno e porte-finestre che si aprono sul balconcino",
+      "sqm": 28,
+      "guests": 2,
+      "bed": "King size 180×200",
+      "view": "Strade alberate del Vomero",
+      "balcony": "Sì, privato",
+      "bath": "Bagno in resina e marmo",
+      "extra": "Frigobar con bibite campane",
+      "price_from": 120,
+      "teaser": "Altezze ampie, parquet d'epoca e un balconcino sul Vomero. Letto King in lino naturale.",
+      "text": "Soffitti alti e luce diffusa, prolungati da un balconcino sulle strade alberate del Vomero. Parquet d'epoca restaurato, tessuti in fibra naturale e dettagli architettonici conservati.",
+      "features": [
+        "Balconcino privato con tavolino da caffè",
+        "Letto King size (180×200 cm) in lino naturale",
+        "Bagno panoramico in resina e marmo, asciugacapelli professionale",
+        "Frigobar con selezione di bibite artigianali campane"
+      ]
+    },
+    {
+      "slug": "suite",
+      "name": "Suite Vomero",
+      "img": "room-suite",
+      "alt": "Suite Vomero: salotto con divano chiaro e poltrona rossa, porta-finestra sul balcone e zona notte sullo sfondo",
+      "sqm": 42,
+      "guests": 3,
+      "bed": "Matrimoniale e divano letto",
+      "view": "Balcone sul quartiere",
+      "balcony": "Sì",
+      "bath": "Vasca freestanding e doppia doccia",
+      "extra": "Colazione in suite su richiesta",
+      "price_from": 165,
+      "teaser": "Salotto indipendente, camino d'epoca e vasca freestanding. La stanza più ampia della casa.",
+      "text": "La stanza più ampia della casa: oltre quaranta metri quadrati con salotto indipendente, camino d'epoca e una vasca freestanding a vista. Pensata per fermarsi, a fine giornata.",
+      "features": [
+        "Zona living indipendente con divano letto in velluto",
+        "Vasca freestanding di design e doppia doccia a pioggia",
+        "Accappatoi in spugna e set cortesia biologico",
+        "Colazione servita in suite su richiesta, senza supplemento"
+      ]
+    }
+  ],
+
+  "reviews": [
+    {
+      "quote": "Più che un B&B, una casa. Colazione eccezionale e Napoli a due passi, in funicolare.",
+      "author": "Ospite di esempio",
+      "meta": "Milano"
+    },
+    {
+      "quote": "Silenzio, luce e un balconcino da cui non volevo più andare via.",
+      "author": "Ospite di esempio",
+      "meta": "Torino"
+    },
+    {
+      "quote": "Camera curata nei dettagli e consigli preziosi su cosa vedere. Torneremo.",
+      "author": "Ospite di esempio",
+      "meta": "Roma"
+    }
+  ]
+}

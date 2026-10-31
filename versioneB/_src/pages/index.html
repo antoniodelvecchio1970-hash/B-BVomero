@@ -1,0 +1,193 @@
+title: Napoli, dall'alto
+title_full: yes
+description: Tre camere sulla collina del Vomero, a Napoli. Colazione inclusa e il centro storico a cinque minuti di funicolare. Verifica la disponibilità.
+header: overlay
+nav: home
+body: page-home
+---
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero__media" data-hero-media>
+    {{img hero | Il Golfo di Napoli e il Vesuvio visti dall'alto | 100vw | hero__img | eager}}
+    <video class="hero__video" muted playsinline preload="none" aria-hidden="true" tabindex="-1" data-hero-video data-src="assets/video/hero.mp4"></video>
+    <div class="hero__scrim"></div>
+  </div>
+  <button class="hero__pause" type="button" data-hero-pause aria-label="Metti in pausa il video">{{icon pause}}</button>
+
+  <div class="container hero__content">
+    <p class="eyebrow eyebrow--light">Vomero · Napoli</p>
+    <h1 class="hero__title" id="hero-title">Napoli, <em>dall'alto.</em></h1>
+    <p class="hero__lead">Tre camere sulla collina del Vomero, con colazione inclusa e il centro storico a cinque minuti di funicolare.</p>
+  </div>
+
+  <form class="booking" action="contatti.html#richiesta" method="get" data-booking aria-label="Verifica la disponibilità">
+    <div class="booking__field">
+      <label for="bk-in">Arrivo</label>
+      <input id="bk-in" name="checkin" type="date" required>
+    </div>
+    <div class="booking__field">
+      <label for="bk-out">Partenza</label>
+      <input id="bk-out" name="checkout" type="date" required>
+    </div>
+    <div class="booking__field">
+      <label for="bk-guests">Ospiti</label>
+      <select id="bk-guests" name="ospiti">
+        <option value="1">1 ospite</option>
+        <option value="2" selected>2 ospiti</option>
+        <option value="3">3 ospiti</option>
+      </select>
+    </div>
+    <button class="btn btn--primary booking__submit" type="submit">Verifica disponibilità</button>
+    <p class="booking__note"><output data-nights aria-live="polite"></output>Ti rispondiamo entro poche ore con disponibilità e tariffa.</p>
+  </form>
+</section>
+
+<section class="facts" aria-label="In sintesi">
+  <div class="container">
+    <ul class="facts__list">
+      <li>{{icon bed}}<div><strong>Solo tre camere</strong><span>Un'atmosfera di casa</span></div></li>
+      <li>{{icon coffee}}<div><strong>Colazione inclusa</strong><span>Ogni mattina, <span class="nowrap">{{s hours.breakfast}}</span></span></div></li>
+      <li>{{icon tram}}<div><strong>5 minuti in funicolare</strong><span>dal centro storico</span></div></li>
+      <li>{{icon clock}}<div><strong>Check-in <span class="nowrap">{{s hours.checkin}}</span></strong><span>Check-out {{s hours.checkout}}</span></div></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="camere" aria-labelledby="rooms-title">
+  <div class="container">
+    <header class="section__head">
+      <div>
+        <p class="eyebrow">Camere</p>
+        <h2 class="h2" id="rooms-title">Tre camere, <em>un'atmosfera di casa.</em></h2>
+      </div>
+      <a class="link-arrow" href="camere.html">Vedi tutte le camere {{icon arrow-right}}</a>
+    </header>
+    <div class="rooms">
+{{room_cards}}
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt" aria-labelledby="vomero-title">
+  <div class="container split">
+    <div class="split__media reveal">
+      <div class="arch">{{img vomero-scarlatti | Via Scarlatti, al Vomero: un viale alberato con i tavolini dei caffè all'aperto | (min-width: 900px) 440px, 80vw}}</div>
+    </div>
+    <div class="split__text reveal">
+      <p class="eyebrow">Il quartiere</p>
+      <h2 class="h2" id="vomero-title">Un'isola di quiete, <em>a pochi minuti da tutto.</em></h2>
+      <p class="lead">Il Vomero è la Napoli che si respira: aria più fresca, villini Liberty, strade alberate. Di giorno scendi nel centro storico; la sera risali nella quiete della collina.</p>
+      <ul class="times">
+        <li>{{icon tram}}<span>Funicolare Centrale → centro storico</span><strong>5 min</strong></li>
+        <li>{{icon tram}}<span>Metro L1 Vanvitelli → Stazione Centrale</span><strong>15 min</strong></li>
+        <li>{{icon pin}}<span>Castel Sant'Elmo e San Martino, a piedi</span><strong>10 min</strong></li>
+        <li>{{icon plane}}<span>Aeroporto di Capodichino</span><strong>Alibus</strong></li>
+      </ul>
+      <div class="btn-row">
+        <a class="link-arrow" href="napoli.html">Scopri Napoli dal Vomero {{icon arrow-right}}</a>
+        <a class="link-arrow" href="contatti.html#come-arrivare">Come raggiungerci {{icon arrow-right}}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="colazione-title">
+  <div class="container split split--reverse">
+    <div class="split__media reveal">
+      <div class="frame">{{img colazione-dolci | Cornetto e caffè su una tavola apparecchiata con tovaglia di lino | (min-width: 900px) 560px, 92vw}}</div>
+    </div>
+    <div class="split__text reveal">
+      <p class="eyebrow">Colazione inclusa</p>
+      <h2 class="h2" id="colazione-title">Ogni mattina, <em>la colazione vera.</em></h2>
+      <p class="lead">Sfogliatelle di prima sfornata, caffè napoletano, spremute di arance siciliane. Dalle {{s hours.breakfast}}, nel salone o in camera su richiesta.</p>
+      <a class="link-arrow" href="il-bb.html#colazione">Scopri la colazione {{icon arrow-right}}</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt" aria-labelledby="napoli-title">
+  <div class="container">
+    <header class="section__head">
+      <div>
+        <p class="eyebrow">Da qui</p>
+        <h2 class="h2" id="napoli-title">Napoli è a portata <em>di funicolare.</em></h2>
+      </div>
+      <a class="link-arrow" href="napoli.html">Scopri Napoli {{icon arrow-right}}</a>
+    </header>
+    <ul class="places">
+      <li class="place reveal">
+        <a class="place__link" href="napoli.html#spaccanapoli">
+          <div class="place__media">{{img napoli-spaccanapoli | Veduta aerea dei vicoli di Spaccanapoli e delle cupole del centro storico | (min-width: 900px) 360px, 78vw}}</div>
+          <p class="place__chip">{{icon tram}} 5 min in funicolare</p>
+          <h3 class="place__title">Spaccanapoli e i decumani</h3>
+          <p class="place__text">Botteghe artigiane, chiostri maiolicati e i vicoli del centro antico.</p>
+        </a>
+      </li>
+      <li class="place reveal" style="--d:.08s">
+        <a class="place__link" href="napoli.html#lungomare">
+          <div class="place__media">{{img napoli-lungomare | Castel dell'Ovo e il lungomare al tramonto, con il Vesuvio sullo sfondo | (min-width: 900px) 360px, 78vw}}</div>
+          <p class="place__chip">{{icon anchor}} Lungomare e golfo</p>
+          <h3 class="place__title">Castel dell'Ovo e il lungomare</h3>
+          <p class="place__text">Passeggiate a fior d'acqua al tramonto, con il Vesuvio e Capri all'orizzonte.</p>
+        </a>
+      </li>
+      <li class="place reveal" style="--d:.16s">
+        <a class="place__link" href="napoli.html#santelmo">
+          <div class="place__media">{{img vomero-santelmo | Castel Sant'Elmo e il panorama su Napoli e sul Vesuvio | (min-width: 900px) 360px, 78vw}}</div>
+          <p class="place__chip">{{icon pin}} 10 min a piedi</p>
+          <h3 class="place__title">Castel Sant'Elmo e San Martino</h3>
+          <p class="place__text">Il panorama a 360° sul golfo, dalla fortezza scavata nel tufo.</p>
+        </a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="reviews-title">
+  <div class="container">
+    <header class="section__head">
+      <div>
+        <p class="eyebrow">Dicono di noi</p>
+        <h2 class="h2" id="reviews-title">Chi è stato qui, <em>racconta.</em></h2>
+      </div>
+    </header>
+    <div class="reviews">
+{{reviews}}
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt" aria-labelledby="faq-title">
+  <div class="container faq-layout">
+    <div class="faq-layout__intro">
+      <p class="eyebrow">Domande frequenti</p>
+      <h2 class="h2" id="faq-title">Prima di <em>prenotare.</em></h2>
+      <p class="lead">Non trovi la risposta? <a class="text-link" href="{{href wa}}" target="_blank" rel="noopener">Scrivici su WhatsApp</a>.</p>
+    </div>
+    <div class="faq">
+      <details name="faq">
+        <summary>A che ora posso arrivare?</summary>
+        <div class="faq__a"><p>Il check-in è dalle {{s hours.checkin}}, il check-out {{s hours.checkout}}. Se prevedi di arrivare fuori orario, scrivici prima del soggiorno.</p></div>
+      </details>
+      <details name="faq">
+        <summary>La colazione è inclusa?</summary>
+        <div class="faq__a"><p>Sì, in ogni soggiorno. Si serve dalle {{s hours.breakfast}}, anche in camera su richiesta. Per opzioni senza glutine o vegane, segnalacelo prima dell'arrivo.</p></div>
+      </details>
+      <details name="faq">
+        <summary>Come arrivo dall'aeroporto?</summary>
+        <div class="faq__a"><p>Con l'Alibus da Capodichino fino a Piazza Municipio, poi la Funicolare Centrale. In alternativa, un taxi con tariffa predeterminata.</p></div>
+      </details>
+      <details name="faq">
+        <summary>C'è un parcheggio?</summary>
+        <div class="faq__a"><p>C'è un garage privato custodito e convenzionato a 100 metri dalla struttura, su prenotazione.</p></div>
+      </details>
+      <details name="faq">
+        <summary>Il Wi-Fi è gratuito?</summary>
+        <div class="faq__a"><p>Sì, in fibra e senza costi, anche per lavorare da remoto.</p></div>
+      </details>
+      <details name="faq">
+        <summary>Si possono portare animali?</summary>
+        <div class="faq__a"><p>No, purtroppo non accettiamo animali domestici.</p></div>
+      </details>
+    </div>
+  </div>
+</section>

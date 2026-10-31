@@ -1,0 +1,87 @@
+title: Il B&B e la colazione
+description: Una casa napoletana sulla collina del Vomero: tre camere, la cura di un ospite a casa e una colazione preparata ogni mattina con prodotti dei forni del quartiere.
+header: solid
+nav: il-bb
+body: page-ilbb
+---
+<section class="page-head">
+  <div class="container">
+    <p class="eyebrow">Il B&amp;B</p>
+    <h1 class="h1">Una casa napoletana, <em>un rifugio senza tempo.</em></h1>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="container prose-grid">
+    <div class="prose-grid__lead reveal">
+      <p class="lead lead--lg">Restituire a chi viaggia lo spazio e il tempo di una casa privata.</p>
+    </div>
+    <div class="prose reveal">
+      <p>{{s brand.name}} nasce attorno a un'idea precisa. Negli ambienti di una palazzina d'inizio Novecento, i volumi ampi, i pavimenti in legno d'epoca e la luce naturale creano un'atmosfera raccolta, essenziale e silenziosa.</p>
+      <p>Nessun cerimoniale superfluo, ma l'attenzione discreta che si riserva a un ospite: la colazione preparata con cura, libri d'arte e architettura da sfogliare senza fretta, indicazioni puntuali per orientarsi in città fuori dai percorsi più battuti.</p>
+    </div>
+  </div>
+  <div class="container wide-figure reveal">
+    <div class="frame frame--wide">{{img about | Angolo lettura con libreria a nicchia, poltrona rossa e lampada accesa | (min-width: 1200px) 1100px, 92vw}}</div>
+  </div>
+</section>
+
+<section class="section section--alt" aria-labelledby="pilastri-title">
+  <div class="container">
+    <h2 class="sr-only" id="pilastri-title">I tre punti di forza della casa</h2>
+    <ul class="pillars">
+      <li class="reveal">{{icon home}}<h3>Atmosfera domestica</h3><p>Soltanto tre camere, per garantire pace, silenzio e una cura personale a ogni ospite.</p></li>
+      <li class="reveal" style="--d:.08s">{{icon tram}}<h3>Tra collina e città</h3><p>A pochi passi dalle funicolari: tutta Napoli in pochi minuti, e al ritorno la quiete della collina.</p></li>
+      <li class="reveal" style="--d:.16s">{{icon book}}<h3>Sguardo locale</h3><p>Botteghe artigiane, trattorie di quartiere, collezioni d'arte e percorsi a piedi tra la collina e il mare.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="colazione" aria-labelledby="colazione-title">
+  <div class="container">
+    <header class="section__head section__head--stack">
+      <p class="eyebrow">Colazione inclusa</p>
+      <h2 class="h2" id="colazione-title">La colazione vera, <em>ogni mattina.</em></h2>
+      <p class="lead">Selezioniamo lievitati e dolci dai laboratori storici del Vomero: sfogliatelle di prima sfornata, impasti a lenta lievitazione, agrumi locali e pani artigianali.</p>
+    </header>
+
+    <div class="trio">
+      <figure class="trio__item reveal">
+        <div class="frame">{{img colazione-dolci | Cornetto e caffè su una tavola apparecchiata | (min-width: 900px) 360px, 92vw}}</div>
+        <figcaption><strong>I dolci di tradizione</strong>Sfogliatelle calde, babà, cornetti artigianali e crema al limone di Sorrento.</figcaption>
+      </figure>
+      <figure class="trio__item reveal" style="--d:.08s">
+        <div class="frame">{{img colazione-caffe | Caffè napoletano con la caffettiera su un piano di marmo verde | (min-width: 900px) 360px, 92vw}}</div>
+        <figcaption><strong>L'arte del caffè</strong>Espresso cremoso, caffè con la cuccumella, cappuccini preparati al momento e tè in foglia.</figcaption>
+      </figure>
+      <figure class="trio__item reveal" style="--d:.16s">
+        <div class="frame">{{img colazione-fresco | Spremuta, frutta fresca, fiordilatte e pane su un tavolo rustico | (min-width: 900px) 360px, 92vw}}</div>
+        <figcaption><strong>Fresco e salato</strong>Spremute di arance siciliane, frutta di stagione, formaggi campani e focaccia calda.</figcaption>
+      </figure>
+    </div>
+
+    <dl class="facts-list reveal">
+      <div><dt>Orario</dt><dd>Ogni mattina, dalle {{s hours.breakfast}}, nel salone comune. In camera o in suite su richiesta.</dd></div>
+      <div><dt>Intolleranze</dt><dd>Segnalaci le tue esigenze prima dell'arrivo: troviamo opzioni senza glutine, vegane o biologiche.</dd></div>
+      <div><dt>Partenze all'alba</dt><dd>Se parti presto, prepariamo un breakfast box da portare via con cornetti freschi, frutta e caffè.</dd></div>
+      <div><dt>Filiera corta</dt><dd>Tutto arriva da forni e pasticcerie artigianali del quartiere, per una freschezza quotidiana.</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="section section--alt" aria-labelledby="info-title">
+  <div class="container prose-grid">
+    <div class="prose-grid__lead reveal">
+      <p class="eyebrow">Info pratiche</p>
+      <h2 class="h2" id="info-title">Tutto quello <em>che serve sapere.</em></h2>
+    </div>
+    <dl class="facts-list reveal">
+      <div><dt>Check-in</dt><dd>{{s hours.checkin}}</dd></div>
+      <div><dt>Check-out</dt><dd>{{s hours.checkout}}</dd></div>
+      <div><dt>Colazione</dt><dd>Inclusa in ogni soggiorno</dd></div>
+      <div><dt>Wi-Fi</dt><dd>Gratuito, in fibra</dd></div>
+      <div><dt>Parcheggio</dt><dd>Garage custodito e convenzionato a 100 metri, su prenotazione</dd></div>
+      <div><dt>Animali</dt><dd>Non ammessi</dd></div>
+    </dl>
+  </div>
+</section>

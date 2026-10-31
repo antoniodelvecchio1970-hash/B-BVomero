@@ -1,0 +1,56 @@
+title: Camere e suite
+description: Camera Standard, Camera Superior e Suite Vomero: tre camere in una palazzina d'inizio Novecento sulla collina del Vomero, con colazione inclusa.
+header: solid
+nav: camere
+body: page-camere
+---
+<section class="page-head">
+  <div class="container">
+    <p class="eyebrow">Camere</p>
+    <h1 class="h1">Tre camere, <em>un'atmosfera di casa.</em></h1>
+    <p class="lead">Ricavate in una palazzina d'inizio Novecento, con materiali caldi, tessuti naturali e tutto il comfort di oggi. Colazione inclusa in ogni tariffa.</p>
+  </div>
+</section>
+
+<nav class="chipnav" aria-label="Vai alla camera" data-chipnav>
+  <div class="container">
+    <ul>
+{{room_chips}}
+      <li><a href="#confronto">Confronto</a></li>
+    </ul>
+  </div>
+</nav>
+
+{{room_sections}}
+
+<section class="section" id="confronto" aria-labelledby="confronto-title">
+  <div class="container">
+    <header class="section__head">
+      <div>
+        <p class="eyebrow">Confronto</p>
+        <h2 class="h2" id="confronto-title">Quale camera <em>fa per te?</em></h2>
+      </div>
+    </header>
+{{room_table}}
+  </div>
+</section>
+
+<section class="section section--alt" aria-labelledby="incluso-title">
+  <div class="container">
+    <header class="section__head">
+      <div>
+        <p class="eyebrow">In ogni camera</p>
+        <h2 class="h2" id="incluso-title">Quello che trovi, <em>sempre.</em></h2>
+      </div>
+    </header>
+    <ul class="amenities">
+      <li>{{icon snow}}<div><strong>Climatizzazione autonoma</strong><span>Regolabile in ogni camera</span></div></li>
+      <li>{{icon volume}}<div><strong>Isolamento acustico</strong><span>Per dormire in silenzio</span></div></li>
+      <li>{{icon bed}}<div><strong>Materassi anatomici</strong><span>Di produzione artigianale italiana</span></div></li>
+      <li>{{icon shower}}<div><strong>Bagno privato</strong><span>Con ampia doccia a pioggia</span></div></li>
+      <li>{{icon wifi}}<div><strong>Wi-Fi in fibra</strong><span>Gratuito, adatto al lavoro da remoto</span></div></li>
+      <li>{{icon plug}}<div><strong>Prese USB</strong><span>Accanto al letto</span></div></li>
+    </ul>
+    <p class="note">Su richiesta: transfer, visite private ai musei di Napoli ed escursioni a Capri, Ischia e Pompei. <a class="text-link" href="contatti.html#richiesta">Chiedici un'idea</a>.</p>
+  </div>
+</section>

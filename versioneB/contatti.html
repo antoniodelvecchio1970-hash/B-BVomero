@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="it" data-draft="true">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Contatti e disponibilità — B&amp;B Vomero</title>
+  <meta name="description" content="Verifica la disponibilità delle camere: scrivici su WhatsApp, chiamaci o compila la richiesta. Ti rispondiamo entro poche ore.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#faf7f2">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+
+  <script src="assets/js/config.js"></script>
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/icons.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="page-contatti">
+  <a class="skip-link" href="#main">Vai al contenuto</a>
+  <header class="site-header site-header--solid" data-header>
+  <div class="container header__bar">
+    <a class="brand" href="index.html" aria-label="B&amp;B Vomero, vai alla home">
+      <svg class="brand__mark" viewBox="0 0 24 28" width="20" height="24" aria-hidden="true" focusable="false"><path d="M2.5 27V12a9.5 9.5 0 0 1 19 0v15M7.5 27V12.6a4.5 4.5 0 0 1 9 0V27" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+      <span class="brand__name">B&amp;B Vomero</span>
+    </a>
+
+    <button class="burger" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+      <span class="sr-only" data-nav-toggle-label>Apri il menu</span>
+      <span class="burger__lines" aria-hidden="true"><span></span><span></span></span>
+    </button>
+
+    <nav class="site-nav" id="site-nav" aria-label="Principale" data-nav>
+      <ul class="nav__list">
+        <li><a href="camere.html">Camere</a></li>
+<li><a href="il-bb.html">Il B&amp;B</a></li>
+<li><a href="napoli.html">Napoli</a></li>
+<li><a href="contatti.html" aria-current="page">Contatti</a></li>
+      </ul>
+      <a class="btn btn--primary btn--sm nav__cta" href="contatti.html#richiesta">Prenota</a>
+      <div class="nav__extra">
+        <p class="nav__extra-label">Parla con noi</p>
+        <a class="nav__contact" href="https://wa.me/390810000000?text=Buongiorno%2C%20vorrei%20informazioni%20su%20disponibilit%C3%A0%20e%20tariffe." target="_blank" rel="noopener"><span class="icon i-whatsapp" aria-hidden="true"></span><span>Scrivici su WhatsApp</span></a>
+        <a class="nav__contact" href="tel:+390810000000"><span class="icon i-phone" aria-hidden="true"></span><span>+39 081 000 0000</span></a>
+        <a class="nav__contact" href="mailto:info@example.com"><span class="icon i-mail" aria-hidden="true"></span><span>info@example.com</span></a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+  <main id="main">
+<section class="page-head">
+  <div class="container">
+    <p class="eyebrow">Contatti</p>
+    <h1 class="h1">Scrivici, <em>ti rispondiamo presto.</em></h1>
+    <p class="lead">Dicci le date e ti diamo disponibilità e tariffa entro poche ore. Puoi usare il canale che preferisci.</p>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="container">
+    <ul class="channels">
+      <li>
+        <a class="channel channel--main" href="https://wa.me/390810000000?text=Buongiorno%2C%20vorrei%20informazioni%20su%20disponibilit%C3%A0%20e%20tariffe." target="_blank" rel="noopener">
+          <span class="icon i-whatsapp" aria-hidden="true"></span>
+          <span class="channel__label">WhatsApp</span>
+          <span class="channel__value">Scrivici ora</span>
+          <span class="channel__hint">Il modo più veloce <span class="draft-tag">Bozza</span></span>
+        </a>
+      </li>
+      <li>
+        <a class="channel" href="tel:+390810000000">
+          <span class="icon i-phone" aria-hidden="true"></span>
+          <span class="channel__label">Telefono</span>
+          <span class="channel__value">+39 081 000 0000</span>
+          <span class="channel__hint">Chiama, ti rispondiamo noi</span>
+        </a>
+      </li>
+      <li>
+        <a class="channel" href="mailto:info@example.com">
+          <span class="icon i-mail" aria-hidden="true"></span>
+          <span class="channel__label">Email</span>
+          <span class="channel__value">info@example.com</span>
+          <span class="channel__hint">Per richieste con più dettagli</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="section section--alt" aria-labelledby="richiesta-title">
+  <div class="container request-layout">
+    <div class="request-card">
+      <h2 class="h3" id="richiesta-title">Verifica la disponibilità</h2>
+      <p class="note">Non è una prenotazione: ti scriviamo noi con disponibilità e tariffa.</p>
+
+      <form class="request" id="richiesta" data-request novalidate aria-labelledby="richiesta-title">
+        <div class="form-grid">
+          <div class="field">
+            <label for="f-in">Arrivo <span class="req" aria-hidden="true">*</span></label>
+            <input id="f-in" name="checkin" type="date" required autocomplete="off" aria-describedby="e-in">
+            <p class="field__error" id="e-in" data-error hidden></p>
+          </div>
+          <div class="field">
+            <label for="f-out">Partenza <span class="req" aria-hidden="true">*</span></label>
+            <input id="f-out" name="checkout" type="date" required autocomplete="off" aria-describedby="e-out">
+            <p class="field__error" id="e-out" data-error hidden></p>
+          </div>
+          <div class="field">
+            <label for="f-guests">Ospiti</label>
+            <select id="f-guests" name="ospiti">
+              <option value="1">1 ospite</option>
+              <option value="2" selected>2 ospiti</option>
+              <option value="3">3 ospiti</option>
+            </select>
+          </div>
+
+          <fieldset class="field field--wide chips">
+            <legend>Camera</legend>
+            <div class="chips__row">
+<label class="chip"><input type="radio" name="camera" value="" checked><span>Nessuna preferenza</span></label>
+<label class="chip"><input type="radio" name="camera" value="standard"><span>Standard</span></label>
+<label class="chip"><input type="radio" name="camera" value="superior"><span>Superior</span></label>
+<label class="chip"><input type="radio" name="camera" value="suite"><span>Suite Vomero</span></label>
+            </div>
+          </fieldset>
+
+          <div class="field field--half">
+            <label for="f-name">Nome e cognome <span class="req" aria-hidden="true">*</span></label>
+            <input id="f-name" name="nome" type="text" required autocomplete="name" aria-describedby="e-name">
+            <p class="field__error" id="e-name" data-error hidden></p>
+          </div>
+          <div class="field field--half">
+            <label for="f-email">Email <span class="req" aria-hidden="true">*</span></label>
+            <input id="f-email" name="email" type="email" required autocomplete="email" inputmode="email" placeholder="nome@email.it" aria-describedby="e-email">
+            <p class="field__error" id="e-email" data-error hidden></p>
+          </div>
+          <div class="field field--wide">
+            <label for="f-phone">Telefono <span class="opt">(facoltativo)</span></label>
+            <input id="f-phone" name="telefono" type="tel" autocomplete="tel" inputmode="tel" placeholder="+39 …">
+          </div>
+          <div class="field field--wide">
+            <label for="f-msg">Richieste o note <span class="opt">(facoltativo)</span></label>
+            <textarea id="f-msg" name="messaggio" rows="3" placeholder="Orario di arrivo, esigenze alimentari, occasioni speciali…"></textarea>
+          </div>
+
+          <div class="field field--wide field--check">
+            <label class="check">
+              <input type="checkbox" name="privacy" required aria-describedby="e-privacy">
+              <span>Ho letto l'<a href="privacy.html" target="_blank" rel="noopener">informativa sulla privacy</a> e acconsento al trattamento dei dati per rispondere alla mia richiesta.</span>
+            </label>
+            <p class="field__error" id="e-privacy" data-error hidden></p>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button class="btn btn--primary btn--lg" type="submit" data-submit>Invia la richiesta</button>
+          <p class="form-status" role="status" aria-live="polite" data-form-status></p>
+        </div>
+      </form>
+
+      <div class="request-done" data-request-done hidden tabindex="-1">
+        <h3 class="h3" data-done-title>Richiesta pronta</h3>
+        <p data-done-text></p>
+        <pre class="request-done__summary" data-done-summary></pre>
+        <div class="btn-row" data-done-actions></div>
+        <button class="link-arrow link-arrow--button" type="button" data-request-reset>Modifica la richiesta <span class="icon i-arrow-right" aria-hidden="true"></span></button>
+      </div>
+    </div>
+
+    <aside class="request-side" aria-label="Dove siamo">
+      <h2 class="h3">Dove siamo</h2>
+      <address class="address">
+        Via Belvedere, 88<br>80127 Napoli (NA) <span class="draft-tag">Bozza</span>
+      </address>
+      <div class="map" data-map data-query="Via Belvedere 88, 80127 Napoli">
+        <div class="map__placeholder">
+          <span class="icon i-pin" aria-hidden="true"></span>
+          <p>La mappa usa Google Maps e si carica solo se lo chiedi.</p>
+          <button class="btn btn--secondary btn--sm" type="button" data-map-load>Mostra la mappa</button>
+        </div>
+      </div>
+      <a class="link-arrow" href="https://www.google.com/maps/search/?api=1&amp;query=Via Belvedere 88, 80127 Napoli" target="_blank" rel="noopener">Apri in Google Maps <span class="icon i-arrow-up-right" aria-hidden="true"></span></a>
+      <dl class="facts-list facts-list--compact">
+        <div><dt>Check-in</dt><dd>14:00–20:00</dd></div>
+        <div><dt>Check-out</dt><dd>entro le 11:00</dd></div>
+        <div><dt>Risposta</dt><dd>Entro poche ore</dd></div>
+      </dl>
+    </aside>
+  </div>
+</section>
+
+<section class="section" id="come-arrivare" aria-labelledby="arrivo-title">
+  <div class="container">
+    <header class="section__head section__head--stack">
+      <p class="eyebrow">Come raggiungerci</p>
+      <h2 class="h2" id="arrivo-title">Da dove <em>arrivi?</em></h2>
+    </header>
+    <div class="tabs" data-tabs>
+      <div class="tabs__list" role="tablist" aria-label="Come arrivare">
+        <button class="tab" role="tab" type="button" id="tab-aeroporto" aria-controls="panel-aeroporto" aria-selected="true"><span class="icon i-plane" aria-hidden="true"></span> Aeroporto</button>
+        <button class="tab" role="tab" type="button" id="tab-stazione" aria-controls="panel-stazione" aria-selected="false" tabindex="-1"><span class="icon i-tram" aria-hidden="true"></span> Stazione</button>
+        <button class="tab" role="tab" type="button" id="tab-porto" aria-controls="panel-porto" aria-selected="false" tabindex="-1"><span class="icon i-anchor" aria-hidden="true"></span> Porto</button>
+        <button class="tab" role="tab" type="button" id="tab-auto" aria-controls="panel-auto" aria-selected="false" tabindex="-1"><span class="icon i-car" aria-hidden="true"></span> In auto</button>
+      </div>
+      <div class="tabs__panel" role="tabpanel" id="panel-aeroporto" aria-labelledby="tab-aeroporto" tabindex="0">
+        <h3 class="h4">Dall'aeroporto di Capodichino</h3>
+        <p>Prendi l'Alibus fino a Piazza Municipio, poi la Funicolare Centrale fino al Vomero. In alternativa, un taxi con tariffa predeterminata dal Comune.</p>
+      </div>
+      <div class="tabs__panel" role="tabpanel" id="panel-stazione" aria-labelledby="tab-stazione" tabindex="0" hidden>
+        <h3 class="h4">Dalla Stazione Centrale</h3>
+        <p>Metro Linea 1, fermata Piazza Vanvitelli: circa 15 minuti.</p>
+      </div>
+      <div class="tabs__panel" role="tabpanel" id="panel-porto" aria-labelledby="tab-porto" tabindex="0" hidden>
+        <h3 class="h4">Dal porto e dal lungomare</h3>
+        <p>Dal Molo Beverello e dal lungomare prendi la Funicolare di Chiaia o la Centrale dal centro: ti portano in pochi minuti al Vomero.</p>
+      </div>
+      <div class="tabs__panel" role="tabpanel" id="panel-auto" aria-labelledby="tab-auto" tabindex="0" hidden>
+        <h3 class="h4">In auto</h3>
+        <p>A 100 metri dalla struttura c'è un garage privato custodito e convenzionato. Si prenota con noi, prima dell'arrivo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+  </main>
+  <footer class="site-footer">
+  <section class="cta-band cta-band--no" aria-labelledby="cta-title">
+    <div class="container cta-band__grid">
+      <div class="cta-band__copy">
+        <p class="eyebrow eyebrow--light">Prenota il tuo soggiorno</p>
+        <h2 class="cta-band__title" id="cta-title">Hai già le date? <em>Scrivici.</em></h2>
+        <p class="cta-band__text">Ti rispondiamo entro poche ore con disponibilità e tariffa. Senza impegno.</p>
+      </div>
+      <div class="cta-band__actions">
+        <a class="btn btn--light btn--lg" href="contatti.html#richiesta">Verifica disponibilità</a>
+        <a class="btn btn--outline-light btn--lg" href="https://wa.me/390810000000?text=Buongiorno%2C%20vorrei%20informazioni%20su%20disponibilit%C3%A0%20e%20tariffe." target="_blank" rel="noopener"><span class="icon i-whatsapp" aria-hidden="true"></span> Scrivici su WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="container footer__grid">
+    <div class="footer__brand">
+      <p class="footer__name">B&amp;B Vomero</p>
+      <p class="footer__tagline">Tre camere sulla collina del Vomero, a Napoli.</p>
+    </div>
+    <nav class="footer__col" aria-label="Esplora">
+      <p class="footer__title">Esplora</p>
+      <ul>
+        <li><a href="camere.html">Camere</a></li>
+        <li><a href="il-bb.html">Il B&amp;B</a></li>
+        <li><a href="il-bb.html#colazione">Colazione</a></li>
+        <li><a href="napoli.html">Napoli</a></li>
+        <li><a href="contatti.html">Contatti</a></li>
+      </ul>
+    </nav>
+    <div class="footer__col">
+      <p class="footer__title">Contatti</p>
+      <address>
+        Via Belvedere, 88<br>80127 Napoli (NA)<br>
+        <a href="tel:+390810000000">+39 081 000 0000</a><br>
+        <a href="mailto:info@example.com">info@example.com</a>
+      </address>
+    </div>
+    <div class="footer__col">
+      <p class="footer__title">Info pratiche</p>
+      <ul>
+        <li>Check-in 14:00–20:00</li>
+        <li>Check-out entro le 11:00</li>
+        <li>Colazione inclusa, 8:00–10:30</li>
+        <li>Wi-Fi gratuito</li>
+        <li>Animali non ammessi</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer__legal">
+    <p>© 2026 B&amp;B Vomero · P.IVA 00000000000 · <a href="privacy.html">Privacy</a> · <a href="cookie-policy.html">Cookie policy</a></p>
+    <p class="footer__draft">Anteprima di design, versione B. Contatti, prezzi, recensioni e foto sono segnaposto in attesa dei dati definitivi.</p>
+  </div>
+</footer>
+
+  <div class="actionbar" data-actionbar role="region" aria-label="Azioni rapide">
+  <a class="btn btn--secondary btn--sm" href="tel:+390810000000"><span class="icon i-phone" aria-hidden="true"></span> Chiama</a>
+  <a class="btn btn--secondary btn--sm" href="https://wa.me/390810000000?text=Buongiorno%2C%20vorrei%20informazioni%20su%20disponibilit%C3%A0%20e%20tariffe." target="_blank" rel="noopener"><span class="icon i-whatsapp" aria-hidden="true"></span> WhatsApp</a>
+  <a class="btn btn--primary btn--sm" href="contatti.html#richiesta">Prenota</a>
+</div>
+
+  <div class="notice" data-notice role="region" aria-label="Informativa sui cookie" hidden>
+  <p class="notice__text">Usiamo solo cookie tecnici. La mappa di Google si carica solo se la richiedi. <a href="cookie-policy.html">Cookie policy</a></p>
+  <button class="btn btn--light btn--sm" type="button" data-notice-close>Ho capito</button>
+</div>
+
+  <script src="assets/js/app.js" defer></script>
+</body>
+</html>
