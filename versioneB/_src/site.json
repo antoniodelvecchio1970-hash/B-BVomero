@@ -1,7 +1,6 @@
 {
   "_nota": "Unica fonte dei dati variabili del sito. Modifica qui, poi lancia: python3 -I versioneB/_tools/build.py",
 
-  "draft": true,
   "indexable": false,
   "form_endpoint": "",
 
@@ -26,13 +25,14 @@
   "legal": {
     "vat": "P.IVA 00000000000",
     "vat_number": "00000000000",
-    "privacy_email": "privacy@example.com"
+    "privacy_email": "privacy@example.com",
+    "cin": ""
   },
 
   "hours": {
-    "checkin": "14:00–20:00",
+    "checkin": "14:00-20:00",
     "checkout": "entro le 11:00",
-    "breakfast": "8:00–10:30"
+    "breakfast": "8:00-10:30"
   },
 
   "rooms": [

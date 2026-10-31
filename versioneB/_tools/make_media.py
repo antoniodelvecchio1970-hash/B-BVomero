@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """
-Versione B — preparazione dei media.
+Versione B - preparazione dei media.
 
 Cosa fa
   1. Converte le foto della versione A in WebP responsive (480/800/1200/1600 px)
      e scrive assets/img/manifest.json (usato da build.py per generare srcset).
   2. Ricava dal video di Napoli (cartella locale Video/, non su GitHub):
-       - assets/video/hero.mp4   (9 s, 1600 px, senza audio, ~1-2 MB)
+       - assets/video/hero.mp4   (5 s, 1600 px, senza audio, ~0,5 MB)
        - il fotogramma iniziale, usato come poster dell'hero (stessa inquadratura).
 
 Come si usa (dalla cartella principale del progetto)
@@ -29,7 +29,7 @@ VIDEO_OUT = OUT / "video"
 SRC_IMAGES = ROOT / "assets" / "images"
 SRC_VIDEO = ROOT / "Video" / "15673263-uhd_3840_2160_60fps.mp4"   # baia di Napoli dall'alto
 VIDEO_START = 1.0     # secondi
-VIDEO_LEN = 9.0
+VIDEO_LEN = 5.0       # 5 s: oltre i 5 s servirebbe un controllo di pausa (WCAG 2.2.2)
 
 # nome nel sito  <-  file sorgente in assets/images/
 SOURCES = {

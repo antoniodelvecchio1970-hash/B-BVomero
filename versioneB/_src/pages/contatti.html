@@ -21,7 +21,7 @@ body: page-contatti
           {{icon whatsapp}}
           <span class="channel__label">WhatsApp</span>
           <span class="channel__value">Scrivici ora</span>
-          <span class="channel__hint">Il modo più veloce {{draft}}</span>
+          <span class="channel__hint">Il modo più veloce</span>
         </a>
       </li>
       <li>
@@ -100,7 +100,7 @@ body: page-contatti
           <div class="field field--wide field--check">
             <label class="check">
               <input type="checkbox" name="privacy" required aria-describedby="e-privacy">
-              <span>Ho letto l'<a href="privacy.html" target="_blank" rel="noopener">informativa sulla privacy</a> e acconsento al trattamento dei dati per rispondere alla mia richiesta.</span>
+              <span>Ho letto l'<a href="privacy.html" target="_blank" rel="noopener">informativa sulla privacy</a>. I dati servono solo per rispondere alla mia richiesta.</span>
             </label>
             <p class="field__error" id="e-privacy" data-error hidden></p>
           </div>
@@ -124,12 +124,12 @@ body: page-contatti
     <aside class="request-side" aria-label="Dove siamo">
       <h2 class="h3">Dove siamo</h2>
       <address class="address">
-        {{s contact.address_street}}<br>{{s contact.address_city}} {{draft}}
+        {{s contact.address_street}}<br>{{s contact.address_city}}
       </address>
       <div class="map" data-map data-query="{{s contact.maps_query}}">
         <div class="map__placeholder">
           {{icon pin}}
-          <p>La mappa usa Google Maps e si carica solo se lo chiedi.</p>
+          <p>La mappa è di Google Maps e si carica solo se lo chiedi. Caricandola, Google riceve il tuo indirizzo IP e può usare cookie.</p>
           <button class="btn btn--secondary btn--sm" type="button" data-map-load>Mostra la mappa</button>
         </div>
       </div>

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Versione B — generatore delle pagine.
+Versione B - generatore delle pagine.
 
 Legge:   versioneB/_src/site.json        (dati variabili: nome, contatti, camere, prezzi...)
          versioneB/_src/pages/*.html     (contenuto di ogni pagina, con intestazione `chiave: valore`)
@@ -15,10 +15,9 @@ Macro disponibili nelle pagine ( {{ nome argomento | argomento }} ):
   href tel | mail | wa [|msg]  link tel:, mailto: e WhatsApp
   img nome | alt | sizes | classe | lazy/eager
   icon nome [| classe]         icona (maschera CSS)
-  draft [| etichetta]          badge "Bozza" (solo se site.json -> draft = true)
   include nome                 inserisce un partial
   nav_links, room_cards, room_sections, room_table, room_chips, room_radios,
-  room_options, reviews, year
+  reviews, cin_line, year
 """
 import html
 import json
@@ -66,8 +65,7 @@ ICONS = {
     "volume": '<path d="M11 5 6 9H2v6h4l5 4zM15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/>',
     "shower": '<path d="M4 4a4 4 0 0 1 8 0v2"/><path d="M12 6h6a3 3 0 0 1 3 3v1H9V6z"/><path d="M11 14v.01M15 14v.01M19 14v.01M9 18v.01M13 18v.01M17 18v.01"/>',
     "plug": '<path d="M9 2v6M15 2v6M6 8h12v4a6 6 0 0 1-12 0zM12 18v4"/>',
-    "pause": '<path d="M7 4h3v16H7zM14 4h3v16h-3z"/>',
-    "play": '<path d="M7 4l13 8-13 8z"/>',
+    "arrow-up": '<path d="M12 19V5M5 12l7-7 7 7"/>',
     "sparkle": '<path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M18 6l-2.5 2.5M8.5 15.5 6 18"/>',
 }
 
@@ -125,16 +123,12 @@ def icon(name, cls="") -> str:
     return f'<span class="icon i-{name}{(" " + cls) if cls else ""}" aria-hidden="true"></span>'
 
 
-def draft(label="Bozza") -> str:
-    return f'<span class="draft-tag">{esc(label)}</span>' if SITE.get("draft") else ""
-
-
 def price_html(room) -> str:
     p = room.get("price_from")
     if not p:
         return '<p class="price"><span class="price__unit">Tariffa su richiesta</span></p>'
     return (f'<p class="price"><span class="price__from">da</span> <strong>€{p}</strong> '
-            f'<span class="price__unit">/ notte</span> {draft()}</p>')
+            f'<span class="price__unit">/ notte</span></p>')
 
 
 def meta_line(r) -> str:
@@ -202,7 +196,7 @@ def m_room_table(page):
         ("Balcone", [esc(r["balcony"]) for r in rooms]),
         ("Bagno", [esc(r["bath"]) for r in rooms]),
         ("Extra", [esc(r["extra"]) for r in rooms]),
-        ("Tariffa", [(f'da €{r["price_from"]} / notte {draft()}' if r.get("price_from") else "Su richiesta") for r in rooms]),
+        ("Tariffa", [(f'da €{r["price_from"]} / notte' if r.get("price_from") else "Su richiesta") for r in rooms]),
     ]
     body = "\n".join(
         f'<tr><th scope="row">{k}</th>' + "".join(f"<td>{v}</td>" for v in vals) + "</tr>" for k, vals in rows)
@@ -237,7 +231,7 @@ def m_reviews(page):
     for i, rv in enumerate(SITE["reviews"]):
         out.append(f'''<figure class="review reveal" style="--d:{i * 0.08:.2f}s">
   <blockquote><p>“{esc(rv["quote"])}”</p></blockquote>
-  <figcaption>{esc(rv["author"])}{(" · " + esc(rv["meta"])) if rv.get("meta") else ""} {draft("Esempio")}</figcaption>
+  <figcaption>{esc(rv["author"])}{(" · " + esc(rv["meta"])) if rv.get("meta") else ""}</figcaption>
 </figure>''')
     return "\n".join(out)
 
@@ -269,7 +263,6 @@ def make_macros(page):
         "href": href,
         "img": lambda *a: img_tag(*a),
         "icon": lambda *a: icon(*a),
-        "draft": lambda *a: draft(*a),
         "include": lambda name: render((SRC / "partials" / f"{name}.html").read_text(encoding="utf-8"), page),
         "nav_links": lambda: m_nav_links(page),
         "room_cards": lambda: m_room_cards(page),
@@ -279,10 +272,7 @@ def make_macros(page):
         "room_radios": lambda: m_room_radios(page),
         "reviews": lambda: m_reviews(page),
         "year": lambda: str(date.today().year),
-        "draft_box": lambda text: (f'<div class="info-box info-box--draft"><p><strong>Bozza.</strong> {esc(text.replace("Bozza: ", "")[:1].upper() + text.replace("Bozza: ", "")[1:])}</p></div>'
-                                   if SITE.get("draft") else ""),
-        "draft_note": lambda:('<p class="footer__draft">Anteprima di design, versione B. Contatti, prezzi, recensioni e foto '
-                               'sono segnaposto in attesa dei dati definitivi.</p>') if SITE.get("draft") else "",
+        "cin_line": lambda: (f' · CIN {esc(SITE["legal"]["cin"])}' if SITE["legal"].get("cin") else ""),
         "page": lambda key: esc(page.get(key, "")),
     }
 
@@ -326,7 +316,7 @@ def build():
         page["content"] = render(body, page)
         page["robots"] = "" if SITE.get("indexable") else '<meta name="robots" content="noindex, nofollow">'
         brand = SITE["brand"]["name"]
-        page["doc_title"] = esc(page["title"] if page.get("title_full") == "yes" else f'{page["title"]} — {brand}')
+        page["doc_title"] = esc(page["title"] if page.get("title_full") == "yes" else f'{page["title"]} - {brand}')
         page["body_class"] = page.get("body", "")
         out = layout
         # sostituzioni di struttura (marcatori {% ... %})
@@ -335,7 +325,6 @@ def build():
         out = out.replace("{%description%}", esc(page.get("description", "")))
         out = out.replace("{%robots%}", page["robots"])
         out = out.replace("{%bodyclass%}", esc(page["body_class"]))
-        out = out.replace("{%draft%}", "true" if SITE.get("draft") else "false")
         out = render(out, page)
         (B / src.name).write_text(out, encoding="utf-8")
         built.append(src.name)
@@ -347,7 +336,6 @@ def build():
         "email": SITE["contact"]["email"],
         "phone": SITE["contact"]["phone_display"],
         "formEndpoint": SITE.get("form_endpoint", ""),
-        "draft": bool(SITE.get("draft")),
     }
     (B / "assets" / "js" / "config.js").write_text(
         "/* Generato da _tools/build.py: modifica _src/site.json */\n"

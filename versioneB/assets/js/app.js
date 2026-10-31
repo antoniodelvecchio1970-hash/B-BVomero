@@ -1,5 +1,5 @@
 /* ==========================================================================
-   VERSIONE B — comportamenti
+   VERSIONE B - comportamenti
    Nessuna dipendenza. Se JavaScript non parte, il sito resta leggibile e i moduli
    (barra date) inviano comunque i dati alla pagina Contatti.
    Moduli: header e menu · reveal · video hero · date · modulo richiesta ·
@@ -72,29 +72,18 @@
 
   /* ---------- Video hero (solo desktop, senza risparmio dati, senza reduced motion) ---------- */
   var vid = $('[data-hero-video]');
-  var heroEl = $('.hero');
-  var pauseBtn = $('[data-hero-pause]');
-  if (vid && pauseBtn) {
-    pauseBtn.addEventListener('click', function () {
-      var paused = !heroEl.classList.contains('is-paused');
-      heroEl.classList.toggle('is-paused', paused);
-      if (paused) vid.pause(); else { var p = vid.play(); if (p && p.catch) p.catch(function () {}); }
-      pauseBtn.setAttribute('aria-label', paused ? 'Riproduci il video' : 'Metti in pausa il video');
-      $('.icon', pauseBtn).className = 'icon ' + (paused ? 'i-play' : 'i-pause');
-    });
-  }
   var saveData = navigator.connection && navigator.connection.saveData;
   if (vid && !reduced && desktop.matches && !saveData) {
     var startVideo = function () {
-      // dissolvenza solo quando il primo fotogramma è davvero disegnato (niente "lampo" nero)
-      var reveal = function () { vid.classList.add('is-playing'); heroEl.classList.add('has-video'); };
-      vid.addEventListener('playing', function () {
-        if ('requestVideoFrameCallback' in vid) vid.requestVideoFrameCallback(reveal);
-        else vid.addEventListener('timeupdate', reveal, { once: true });
+      // Il video parte da fermo sul primo fotogramma (identico alla foto) e solo allora si sovrappone:
+      // la dissolvenza è invisibile e non c'è nessun lampo scuro.
+      vid.addEventListener('loadeddata', function () {
+        vid.classList.add('is-playing');
+        var p = vid.play();
+        if (p && p.catch) p.catch(function () { /* autoplay bloccato: resta il primo fotogramma */ });
       }, { once: true });
       vid.src = vid.getAttribute('data-src');
-      var p = vid.play();
-      if (p && p.catch) p.catch(function () { /* autoplay bloccato: resta la foto */ });
+      vid.load();
     };
     if ('requestIdleCallback' in window) window.requestIdleCallback(startVideo, { timeout: 2500 });
     else window.setTimeout(startVideo, 1200);
@@ -202,7 +191,7 @@
 
     function summary(d) {
       var lines = [
-        'Richiesta di disponibilità — ' + (SITE.brand || ''),
+        'Richiesta di disponibilità - ' + (SITE.brand || ''),
         'Arrivo: ' + longDate(d.checkin) + ' · Partenza: ' + longDate(d.checkout) + ' (' + d.nights + (d.nights === 1 ? ' notte' : ' notti') + ')',
         'Ospiti: ' + d.guests,
         'Camera: ' + d.room,
@@ -270,9 +259,7 @@
           status.textContent = 'Non siamo riusciti a inviare la richiesta. Riprova, oppure scrivici su WhatsApp.';
         }).then(function () { submitBtn.disabled = false; submitBtn.textContent = label; });
       } else {
-        var text = 'Ultimo passaggio: invia il messaggio su WhatsApp o via email. Qui sotto trovi il riepilogo.';
-        if (SITE.draft) text += ' (Anteprima: il modulo non è ancora collegato a un server, quindi nulla viene salvato.)';
-        showDone('Richiesta pronta', text, data, true);
+        showDone('Richiesta pronta', 'Ultimo passaggio: invia il messaggio su WhatsApp o via email. Qui sotto trovi il riepilogo. Il sito non conserva i dati che hai inserito.', data, true);
       }
     });
 
@@ -325,24 +312,41 @@
     });
   }
 
-  /* ---------- Avviso cookie (solo cookie tecnici) ---------- */
+  /* ---------- Avviso informativo sui cookie (solo cookie tecnici) ----------
+     Non è un banner di consenso: con soli cookie tecnici il consenso non serve (Garante, Linee guida
+     10/6/2021, par. 7.1). Compare una sola volta, nella home, alla prima visita e dopo un po' di scroll,
+     così non copre la hero. Il link "#cb-open" nelle pagine legali lo mostra di nuovo su richiesta. */
   var notice = $('[data-notice]');
   var NKEY = 'bb_notice_v1';
   function noticeSeen() { try { return localStorage.getItem(NKEY) === '1'; } catch (e) { return false; } }
+  function markNoticeSeen() { try { localStorage.setItem(NKEY, '1'); } catch (e) { /* modalità privata: nessun problema */ } }
   if (notice) {
-    // Non copre la hero al primo sguardo: compare solo dopo un po' di scroll
-    if (!noticeSeen()) {
-      var showNotice = function () { notice.hidden = false; window.removeEventListener('scroll', onFirstScroll); };
-      var onFirstScroll = function () { if (window.scrollY > 160) showNotice(); };
+    if (document.body.classList.contains('page-home') && !noticeSeen()) {
+      var onFirstScroll = function () {
+        if (window.scrollY > 160) {
+          notice.hidden = false;
+          markNoticeSeen();            // visto una volta: non si ripresenta nelle altre pagine né alla prossima visita
+          window.removeEventListener('scroll', onFirstScroll);
+        }
+      };
       window.addEventListener('scroll', onFirstScroll, { passive: true });
     }
-    var close = $('[data-notice-close]', notice);
-    close.addEventListener('click', function () {
-      notice.hidden = true;
-      try { localStorage.setItem(NKEY, '1'); } catch (e) { /* modalità privata: nessun problema */ }
-    });
+    $('[data-notice-close]', notice).addEventListener('click', function () { notice.hidden = true; markNoticeSeen(); });
     $$('a[href="#cb-open"]').forEach(function (a) {
       a.addEventListener('click', function (e) { e.preventDefault(); notice.hidden = false; });
+    });
+  }
+
+  /* ---------- Pulsante "torna su" ---------- */
+  var totop = $('[data-totop]');
+  function updateTop() {
+    if (totop) totop.classList.toggle('is-visible', window.scrollY > 700);
+  }
+  if (totop) {
+    totop.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: reduced ? 'auto' : 'smooth' });
+      var brand = $('.brand');          // il focus torna in cima, così chi usa la tastiera non lo perde
+      if (brand) brand.focus({ preventScroll: true });
     });
   }
 
@@ -363,10 +367,10 @@
   window.addEventListener('scroll', function () {
     if (ticking) return;
     ticking = true;
-    window.requestAnimationFrame(function () { onScroll(); updateBar(); ticking = false; });
+    window.requestAnimationFrame(function () { onScroll(); updateBar(); updateTop(); ticking = false; });
   }, { passive: true });
   window.addEventListener('resize', updateBar);
-  onScroll(); updateBar();
+  onScroll(); updateBar(); updateTop();
 
   /* ---------- Chip camere: evidenzia la sezione visibile ---------- */
   var chipnav = $('[data-chipnav]');

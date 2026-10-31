@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Versione B — porta i testi legali della versione A (privacy.html, cookie-policy.html)
+Versione B - porta i testi legali della versione A (privacy.html, cookie-policy.html)
 dentro _src/pages/, sostituendo i dati di contatto con le macro di site.json.
 
 Si lancia UNA volta (poi i testi si modificano in _src/pages/). Rilanciandolo
@@ -35,8 +35,8 @@ REPLACEMENTS = [
      '<a href="{{href mail}}">{{s contact.email}}</a>'),
     (r'<a href="tel:\+390811847320">\+39 081 1847 3320</a>',
      '<a href="{{href tel}}">{{s contact.phone_display}}</a>'),
-    (r"Via Belvedere, 88 — 80127 Napoli \(NA\)",
-     "{{s contact.address_street}} — {{s contact.address_city}}"),
+    (r"Via Belvedere, 88 - 80127 Napoli \(NA\)",
+     "{{s contact.address_street}} - {{s contact.address_city}}"),
     (r"P\.IVA: 12345678901", "P.IVA: {{s legal.vat_number}}"),
     (r"B&amp;B Vomero", "{{s brand.name}}"),
 ]
@@ -71,7 +71,6 @@ def main():
             '<section class="page-head page-head--legal">\n  <div class="container container--narrow">\n'
             f"    {head.group(1).strip()}\n  </div>\n</section>\n\n"
             '<section class="section section--tight">\n  <div class="container container--narrow">\n'
-            "{{draft_box Bozza: testo ereditato dalla versione A. Va rivisto con il titolare quando i dati e il nome della struttura saranno definitivi.}}\n"
             f"{rest.strip()}\n  </div>\n</section>\n"
         )
         (OUT / name).write_text(page, encoding="utf-8")
